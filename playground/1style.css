@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* CSS Document */
+body,td,th {
+	color: #FFF;
+	font-family: 'Lucida Grande',tahoma,verdana,arial,sans-serif;
+}
+body {
+	background-color: #222;
+	font-size: 100%;
+	overflow: hidden;
+}
+a:link {
+	color: #FF9933;
+}
+a:visited {
+	color: #FF9933;
+}
+a:hover {
+	color: #FF9933;
+}
+a:active {
+	color: #FF9933;
+}
+
+#container
+{
+	text-align: center;
+}
+.kemu{
+	position: relative;
+	top: 100px;
+}

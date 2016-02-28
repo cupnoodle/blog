@@ -1,0 +1,33 @@
+---
+layout: post
+title:  "About"
+date:   2014-03-21 00:05:10
+categories: 
+about_tab: class="active"
+---
+
+##About this site
+
+**Little foxes** is a blog created with the aim to spread the love and appreciation towards fox (_Vulpes vulpes_) with extra programming stuff added.  
+
+This site is hosted on <a href="https://www.digitalocean.com/?refcode=f7f1b47b1fff">Digital Ocean</a> and staticly generated using  <a href="http://jekyllrb.com/">Jekyll </a>.
+
+##About the author
+
+####soulchild
+
+Malaysian , fox enthusiast, web technology enthusiast, computer science undergraduate student and likes to draw occasionally. Currently being held in a [Sweatshop](http://sweatshop.in).
+
+<a href="http://github.com/cupnoodle"><i class="fa fa-github fa-3x"></i></a> &nbsp;&nbsp;&nbsp; <a href="http://twitter.com/soulchild___"><i class="fa fa-twitter fa-3x"></i></a>
+
+
+Feel free to drop an email to soulchildsince2013 [at] gmail.com, I would be happy to answer your enquiries. I will send you some handmade cookies if you include some fox pictures in the email.
+
+
+##FAQ
+
+1. **What's the fox girl thingy on the background?**  
+Ahh I forgot to introduce her, she's one of my original character named **Murasaki**, she likes being pat on the head. I started drawing her since 2010.
+
+2. **How do you buy this .es domain?**  
+Through namecheap, you can see the [requirement and steps here](https://www.namecheap.com/support/knowledgebase/article.aspx/9246/36/are-there-any-specific-requirements-for-registering-a-es-domain).

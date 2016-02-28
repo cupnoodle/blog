@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="containar">
+      <div class="mascot">
+
+      </div>
+      <div class="navlink">
+        <a href="{{site.url}}">LITTLE FOX</a>
+      </div>
+
+        {{ content }}
+
+      <div class="aboutlink">
+        <a href="{{ "/about.html" | prepend: site.baseurl }}">About</a>
+      </div>
+    </div>
+  <!-- Start of StatCounter Code for Default Guide -->
+  <script type="text/javascript">
+  var sc_project=10591764; 
+  var sc_invisible=1; 
+  var sc_security="165bc6cf"; 
+  var scJsHost = (("https:" == document.location.protocol) ?
+  "https://secure." : "http://www.");
+  document.write("<sc"+"ript type='text/javascript' src='" +
+  scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="web statistics"
+  href="http://statcounter.com/" target="_blank"><img
+  class="statcounter"
+  src="http://c.statcounter.com/10591764/0/165bc6cf/1/"
+  alt="web statistics"></a></div></noscript>
+  <!-- End of StatCounter Code for Default Guide -->
+
+  <!-- parse emoji into twemoji -->
+  <script>
+    twemoji.parse(document.getElementsByClassName('postheader-container'), {"size":72});
+  </script>
+  </body>
+
+</html>

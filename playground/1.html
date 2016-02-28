@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cube Spin</title>
+<link rel="stylesheet" type="text/css" href="1style.css">
+<script src="three.min.js"></script>
+</head>
+<body>
+	<div id="container">
+	<script>
+	var camera, scene, renderer;
+	var mesh,ellipse;
+
+	init();
+	animate();
+	function init() {
+		renderer = new THREE.WebGLRenderer({ alpha: true });
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		//
+		camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.z = 400;
+		scene = new THREE.Scene();
+
+		scene.add( new THREE.AmbientLight( 0xff525d ) );
+
+		light = new THREE.DirectionalLight( 0xffffff );
+		light.position.set( 1, 1, 1 );
+		scene.add( light );
+
+		var geometry = new THREE.CubeGeometry( 100, 100, 100 );
+
+		for ( var i = 0; i < geometry.faces.length; i ++ ) {
+    	geometry.faces[ i ].color.setHex( 0xffffff );
+		}
+
+
+		var material = new THREE.MeshLambertMaterial( { color: 0xffffff, vertexColors: THREE.FaceColors } );
+		cube = new THREE.Mesh( geometry, material );
+		scene.add( cube );
+		//
+		var map = THREE.ImageUtils.loadTexture( 'cut.png' );
+		var materiala = new THREE.MeshLambertMaterial( { ambient: 0xbbbbbb, map: map, side: THREE.DoubleSide } );
+		ellipse = new THREE.Mesh( new THREE.RingGeometry( 60, 70, 40, 5, 0, Math.PI * 2 ), materiala );
+		ellipse.position.set( 0, -100, 0 );
+		ellipse.rotation.x -= 1.5;
+
+		ellipse2 = new THREE.Mesh( new THREE.RingGeometry( 90, 100, 40, 5, 0, Math.PI * 2 ), materiala );
+		ellipse2.position.set( 0, -100, 0 );
+		ellipse2.rotation.x -= 1.5;
+
+		scene.add( ellipse );
+		scene.add (ellipse2 );
+
+		window.addEventListener( 'resize', onWindowResize, false );
+	}
+	function onWindowResize() {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		renderer.setSize( window.innerWidth, window.innerHeight );
+	}
+	function animate() {
+		requestAnimationFrame( animate );
+		cube.rotation.x -= 0.025;
+		cube.rotation.y -= 0.025;
+
+		ellipse.rotation.z -= 0.025;
+		ellipse2.rotation.z -= 0.035;
+		renderer.render( scene, camera );
+	}
+	</script>
+	<span class="kemu"></span>
+	</div>
+</body>
+</html>

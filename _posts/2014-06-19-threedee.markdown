@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "3D using javascript (Three.js)"
+date:   2014-06-19 22:30:10
+categories: post 
+---
+
+##Three.js
+I have used this <a href="http://threejs.org/">library (Three.js)</a>. The library is free and open source to use (but the documentation is not well organized,hours spent on stack overflow troubleshooting stuff again @_@), I am really amused by the fact that 3D rendering is now
+ possible using web browser. (Using WebGL technology, still lack support from some web browser like safari, etc).I am starting to believe <a href="http://blog.codinghorror.com/the-principle-of-least-power/">Atwood's Law</a> does work.
+
+##Playground
+<a href="http://kitsunechan.com/playground/1.html">Click here to see the animation</a>(May not work for safari and internet explorer)    
+Not anything fancy but I had fun playing around with it.  
+Bonus point for who can guess where is the origin of the animation =P.  
+
+##Etc
+Recently I have attended a cosplay event in my university, will blog about it soon ^^.  
+
+
+ 

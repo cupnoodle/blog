@@ -1,0 +1,32 @@
+---
+layout: default
+title:  "Archive"
+---
+
+      <div class="postheader-container">
+
+        {% for post in paginator.posts %}
+
+        <div class="postheader">
+          <a href="{{ post.url | prepend: site.baseurl }}" class="title">{{ post.title }}</a><br><br>
+          <span class="date">Posted on {{ post.date | date: "%-d %b %Y" }}</span>
+        </div>
+        
+
+        {% endfor %}
+
+        <div class="postheader">
+          {% if paginator.previous_page %}
+            {% if paginator.previous_page.to_i == 1 %}
+            <a class"nav" href="{{site.url}}">Previous</a>
+            {% else %}
+            <a class="nav" href="{{ paginator.previous_page_path }}">Previous</a>
+            {% endif %}
+          {% endif %}
+          <span class="nav"> | {{ paginator.page }} of {{ paginator.total_pages }} | </span>
+          {% if paginator.next_page %}
+            <a class="nav" href="{{ paginator.next_page_path }}">Next</a>
+          {% endif %}
+        </div>
+
+      </div>

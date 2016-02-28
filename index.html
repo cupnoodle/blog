@@ -1,0 +1,22 @@
+---
+layout: default
+title: Little Foxes
+---
+
+      <div class="postheader-container">
+
+        {% for post in site.posts offset: 0 limit: 10 %}
+
+        <div class="postheader">
+          <a href="{{ post.url | prepend: site.baseurl }}" class="title">{{ post.title }}</a><br><br>
+          <span class="date">Posted on {{ post.date | date: "%-d %b %Y" }}</span>
+        </div>
+        
+
+        {% endfor %}
+
+        <div class="postheader">
+           <a class="nav" href="page">[ View more posts ]</a>
+        </div>
+
+      </div>
