@@ -1,7 +1,7 @@
 
 body{
   height: 100%;
-  font-family: 'proxima-nova-soft', 'Avenir', sans-serif;
+  font-family: 'proxima-nova-soft', 'Lucida Grande', 'Arial', sans-serif;
   font-weight: 400;
   padding: 0;
   margin: 0;
@@ -17,6 +17,8 @@ code{
  white-space: -pre-wrap;      /* Opera 4-6 */
  white-space: -o-pre-wrap;    /* Opera 7 */
  word-wrap: break-word;
+ font-family: 'anonymous-pro', sans-serif;
+ letter-spacing: 0;
 }
 
 strong{
@@ -46,9 +48,13 @@ a:active {
 
 code{
   border: 1px solid #444;
-  background-color: #272727;
+  border-radius: 5px;
+  background-color: #474747;
   color: #EEE;
-  padding: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .containar{
@@ -89,17 +95,17 @@ code{
 {
   position: relative;
   font-weight: 600;
-  padding-top: 10px;
+  padding-top: 40px;
   padding-bottom: 10px;
   text-align: center;
   z-index: 3;
   font-size: 2em;
   letter-spacing: 0.2em;
-  color: #777;
+  color: #555;
 }
 
 .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active{
-  color: #777;
+  color: #555;
   text-decoration: none;
 }
 
