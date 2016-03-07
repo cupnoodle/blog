@@ -92,4 +92,38 @@ Take note of the path and expire date of your certificate as highlighted above.
 
 ### Where's the cert?
 
+You will get four files listed below after successfully obtaining the certificate from Lets Encrypt :   
+
+1. **cert.pem** Your domain name certificate  
+2. **chain.pem** Let's Encrypt [chain certificate](https://support.dnsimple.com/articles/what-is-ssl-certificate-chain/)  
+3. **fullchain.pem**: cert.pem and chain.pem combined in one file  
+4. **privkey.pem**: Your certificate's private key  
+  
+These files are located in a folder in **/etc/letsencrypt/archive**. But as you renew the certificates, it is hard to keep track on the latest certificate in the archive folder. To make your life easier, Let's Encrypt has already created symbolic links to the most recent certificate files in **/etc/letsencrypt/live/[your_domain_name]** directory. As this links will always point to the most recent certificate files, you should use this path to locate your certificare file in the server configuration file.  
+  
+## Step Three - Configure Nginx to use SSL/TLS certificate
+
+So now you have the certificates, lets configure the Nginx web server to use it.  
+
+Insall Nginx web server if you haven't already,   
+<code>sudo apt-get install nginx</code>  
+  
+Edit the Nginx configuration file, it is located at **/etc/nginx/sites-available/default** by default.  
+<code>sudo nano /etc/nginx/sites-available/default</code>  
+
+Find the **server** block in the config file, it will look similar like this :
+<script src="https://gist.github.com/cupnoodle/2e4737cff62778b5d68f.js"></script>  
+
+Comment out (prepending #) or remove the lines that configure the server to listen to port 80 and replace it with port 443 (https). Remove these two lines :   
+<script src="https://gist.github.com/cupnoodle/44fc5b335b8ce2aed62d.js"></script>  
+
+Now add these lines to configure your server to listen to port 443, use the SSL certificates and SSL configuration. Replace the **[your_domain]** with your own domain name.  
+<script src="https://gist.github.com/cupnoodle/fd47b54c03572d365350.js"></script>  
+
+And last, add another server block (after the previous server block we created above) to listen to port 80 and redirect it to the https/SSL server block.  And again, replace the **[your_domain]** with your domain name.  
+<script src="https://gist.github.com/cupnoodle/3afcc9e7da4893e68c16.js"></script>
+
+
+
+
 
