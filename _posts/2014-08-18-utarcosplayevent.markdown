@@ -5,7 +5,7 @@ date:   2014-08-18 02:30:10
 categories: post 
 ---
 
-##Making of Utar Cosplay Event
+## Making of Utar Cosplay Event
 
 By a chance of luck, I was suddenly in part of Utar Cosplay Event(UCE) performing team.  
 It is my first time performing on stage and cosplaying publicly, I am very grateful and happy for this ^^.  

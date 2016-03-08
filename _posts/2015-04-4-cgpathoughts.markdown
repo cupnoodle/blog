@@ -5,7 +5,7 @@ date:   2015-04-4 20:00:10
 categories: post 
 ---
 
-##Thought on CGPA
+## Thought on CGPA
 
 I have very low self-esteem towards myself during my years pursuing degree in university. I thought if I could get a good CGPA then maybe  I would be more confident when I first entered university, then I worked hard for it by memorising bunch of texts (my university emphasise on meaningless memorisation, yes, I got wtf-ed when I first saw the exam paper) that is not gonna be useful in real world. Gotten two president list and two dean list as a result,  it didn’t cheer me up much but it opened some door for me without realising. 
 
@@ -14,11 +14,11 @@ As much as I disliked how CGPA is graded, some companies still see CGPA as the f
 What a cruel world, as if your side project app you happily coded as hobby didn’t matter at all. I asked an interviewer before why do they emphasise on CGPA so heavily. “_Because CGPA reflects how much dedication you put into your learning and how high the standard you set to yourself_”. Ah I see, seems pretty legitimate and reasonable to me at first. Then I recalled and compared how my friends got their CGPA and mine.
 
 
-#Case 1
+# Case 1
 For Object-Oriented Concept, I got an A while my friend Sunny got a B , we coded a lot and have similar level of competency. The difference of result is because of different lecturer, I took the subject earlier than him and taught by a kind lecturer which give reasonable amount and difficulty of assignment (command line interface UNO game) . Sunny was unlucky, his lecturer was new and without experience, the assignment given to his batch was creating a GUI stock trading application with full set of feature (have to write from scratch) and we have the same amount of time allocated for the assignment. In his semester, no one managed to finish
 the assignment because it is too complex and the timeframe allocated was far too short hence no one in that semester gotten A for that subject.
 
-#Case 2
+# Case 2
 For English for IT, I get a B+ as my reading and writing skill is not well-versed at that time. I have a friend who scored worse than mine in the midterm and quiz for this subject but in the end he got an A for this subject. I asked him how he managed to improve his english within such short period of time then he replied “Oh, I went to meet the lecturer before the result is calculated and begged the lecturer to give me an A as I needed to meet certain requirement to continue my scholarship to decrease my family burden, and she agreed”.
 
 

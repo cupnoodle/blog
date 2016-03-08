@@ -9,7 +9,7 @@ I worked for a short brief period of half year as an IT technical support at a p
   
 <br> 
 
-##You will learn how to communicate and serve the customer   
+## You will learn how to communicate and serve the customer   
   
 During recess time, students rush into the computer lab to print their stuff and we will collect a fee from them based on how many pages they have printed. Sometimes they will get stuck on the procedure on how to print as we used two shared printer for all the computers and we have to assist and guide them. One day during lunch break, two students came in and printed 200 pages+ of e-book, we were shocked as we have never encounter this situation before.  
 <br>
@@ -21,7 +21,7 @@ We first feel bad about unable to serve all customer but after several considera
   
 <br>
 
-##You will face unreasonable requests   
+## You will face unreasonable requests   
   
 The school curriculum taught students visual basic programming and their assignment and homework are usually saved inside individual computer and the teacher would come to each computer after the student have finish coding, open up the program ,proceed to marking according to the output of the program and save it into a pendrive for future reference. After using the outdated Windows XP for years, we wanted to upgrade the operating system of all the computer in the computer labs to Windows 7 as we recently gotten education bulk purchase prices for Windows 7.  
 <br> 
@@ -52,12 +52,12 @@ He then went out after assuring us not to worry.
 Turns out he talked to vice principal of school about this and the head of computer subject got a verbal warning from the vice principal, we still keep our job. She still holds grudges about us, we can see it from her stares every time she went inside the computer lab. We learned not to worry about unreasonable request and that some adult (even teacher) behavior may actually worse than teenagers (students). Luckily our head of department is really kind.  
 <br>
 
-##You will develop empathy towards people who work as customer service  
+## You will develop empathy towards people who work as customer service  
   
 On the previous paragraph, I described the unreasonable request we gotten from a teacher. After that experience, I developed empathy towards other customer service staff especially waiter/cashier who have to serve dozens of customer a day and some of the customers they met may have requested unreasonable favor or have rude attitude. You can’t just tell those problematic customers to fuck off, your supervisor or employer will kill you for that, the least you can do is to delegate to your supervisor or manager to handle (if they are present at that time, that is). I always tip an amount I can afford to waiter and avoid making too much request when buying products from store because I know how it feels like to be bombarded with unreasonable favors and how hard it is to deal with it in a daily basis.  
 <br>
 
-##Epilogue  
+## Epilogue  
 
 Go take a job in customer service if you have not taken before.  
   

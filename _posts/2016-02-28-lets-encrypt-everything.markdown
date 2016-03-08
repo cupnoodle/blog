@@ -24,13 +24,13 @@ Obtaining a SSL/TLS certificate used to [cost some money](https://www.geotrust.c
 ## Prerequisites
 
 You should have a linux server with user with **sudo** privillege.
-This post will be using Ubuntu server for example, you can replace the ubuntu specific command like <code>apt-get</code> with the command of linux distro you use.  
+This post will use Ubuntu distro for example, you can replace Ubuntu specific command like <code>apt-get</code> with the command of Linux distro you use.  
 
-The port 443 is not blocked by the firewall of your server as this port is used by SSL.  
+Ensure that port 443 is not blocked by the firewall of your server as this port is used by SSL.  
 
 You must own or have control to the domain name that you wish to use with the certificate generated. If you do not have a domain name yet, I recommend [purchasing one at Namecheap](https://www.namecheap.com/?aff=70386).
 
-As Let's Encrypt don't allow you generate certificate for domain name you don't own, you have to prove to them that you own the domain name. Go to DNS Setting of your domain name and create an A Record that points your domain to the public IP address of your server. For example, if you want the certificate to work for both **example.com** and **www.example.com** , you have to add two A records to your server as shown below :   
+As Let's Encrypt don't allow you to generate certificate for domain name you don't own, you have to prove to them that you own the domain name. Go to DNS Setting of your domain name and create an A Record that points your domain to the public IP address of your server. For example, if you want the certificate to work for both **example.com** and **www.example.com** , you have to add two A records to your server as shown below :   
 
 ![Adding both @ and www A Record](https://littlefoximage.s3.amazonaws.com/post/19/a_record.png) 
   
@@ -120,8 +120,24 @@ Comment out (prepending #) or remove the lines that configure the server to list
 Now add these lines to configure your server to listen to port 443, use the SSL certificates and SSL configuration. Replace the **[your_domain]** with your own domain name.  
 <script src="https://gist.github.com/cupnoodle/fd47b54c03572d365350.js"></script>  
 
-And last, add another server block (after the previous server block we created above) to listen to port 80 and redirect it to the https/SSL server block.  And again, replace the **[your_domain]** with your domain name.  
-<script src="https://gist.github.com/cupnoodle/3afcc9e7da4893e68c16.js"></script>
+And last, add another server block (after the previous server block we created above) to listen to port 80 and redirect it to the HTTPS server block so that when visitor visit your site, they will always be served through HTTPS.  And again, replace **[your_domain]** with your domain name.  
+<script src="https://gist.github.com/cupnoodle/3afcc9e7da4893e68c16.js"></script>  
+Then press <kbd>CTRL</kbd> + <kbd>X</kbd> and type **Y** to save.   
+Now your Nginx config file should look similar to below:   
+<script src="https://gist.github.com/cupnoodle/fb4360c9f2afe7908687.js"></script>  
+
+Restart your server to put the changes into effect   
+<code>sudo service nginx restart</code>  
+
+Now navigate to your website and you should see a nice little green lock.
+![Aww yiss green lock](https://littlefoximage.s3.amazonaws.com/post/19/little_green_lock.png)  
+
+## Conclusion
+
+That's it! Your website is now secured using Lets' Encrypt 's free TLS/SSL certificate. And remember to renew it after 90 days as the certificate only last for 90 days for now.  
+  
+p/s: if you actually tried to obtain a certificate using domain "bankofamerica.com", you will get a warning that Let's Encrypt has already blacklisted this domain 😝
+
 
 
 

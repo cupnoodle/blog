@@ -4,7 +4,7 @@ title:  "Apple hardware does fail, unexpected quick too"
 date:   2014-04-07 00:30:10
 categories: post 
 ---
-##The unexpected
+## The unexpected
 
 **31 March 2014**  
 I was using my laptop to run photoshop and then suddenly the screen went white and does not respond to any key I press.
@@ -26,7 +26,7 @@ The service shop has some historical Macs collection put on the entrance.
 ![internal of macbook](https://farm8.staticflickr.com/7253/13678617034_45d91f0993_c.jpg)  
 <br><br>
 
-##Problem
+## Problem
 ![historical mac collection](https://farm4.staticflickr.com/3691/13678252565_92e8b71e43_c.jpg)  
 
 How many Macs can you identify? The repairman told me that a lot of customer that uses Macbook Pro 2011 15" model faces the same issue too. It was due to poor heat flow 
@@ -36,10 +36,10 @@ design and graphic chip fault. He told me that the same problem may occur again 
 [dedicated website](http://www.mbp2011.com/) created by a frustrated user to urge other user that faces the same problem to file a complain/action to Apple.
 I always wanted a machine that can give me a peace of mind so that I can focus on task I do, this machine suddenly failed that requirement and I have only used this machine for about two years, even cheap laptop of other brand last longer than that.
 
-##Dilemma
+## Dilemma
 This event has made me lost confidence in Apple, I originally bought the Macbook Pro because I believed it will last quite a long time and it was really reliable, no major lag or annoyance has surfaced throughout 2 year of use. The ability to use Adobe Suite natively and typing unix command in terminal really tempted me. I was really disappointed with Apple after paying such premium price but I dislike the troublesome Windows operating system plus Linux-based operating system can't run Adobe Suite natively and not really user friendly. I really enjoyed the productivity that OS X has given me and now I can't get used to previous state. After giving it a serious thought for few days, I decided to give Apple a last chance as I still miss the OS X interface, I traded-in my Macbook Pro and added some money(cost me a kidney) to buy a new one.   
 
-##Clean up
+## Clean up
 Before trade-in, I have to clear off the sticker I put on the back of the laptop. (Kinda regret why I put it out of fun that time ^^;) . Used a metal ruler to scrape off the surface of the sticker and applied alcohol to rub off the remaining sticking part. Wiped clean the whole laptop surface using dry cloth afterward.
 
 ![removed sticker surface](https://farm8.staticflickr.com/7378/13678598124_757b558fe8_c.jpg)  
@@ -50,5 +50,5 @@ Before trade-in, I have to clear off the sticker I put on the back of the laptop
 
 ![looks like brand new](https://farm8.staticflickr.com/7253/13678275753_030c970a80_c.jpg)  
 
-##Lesson
+## Lesson
 Prepare a large sum of moolah if you want to use an Apple product. Buying it cost a lot and repairing it cost even more. Apple hardware does fail, and it may fail unexpectedly fast too. List down the reason why you want to use an Apple product instead of other and give it a serious thought before you buy it. Voice out your dissatisfaction publicly if you have encountered such problem to pressure Apple. It just <s>fails</s> _works_ because [they all suck](http://blog.codinghorror.com/because-they-all-suck/) .

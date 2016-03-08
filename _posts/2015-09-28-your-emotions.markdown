@@ -6,7 +6,7 @@ categories: post
 post_id: 17
 ---
 
-##Emotions 😬
+## Emotions 😬
 
 p/s : Post with title starting with _"Writings #"_ are random writings I write for practice or fun 😗
 

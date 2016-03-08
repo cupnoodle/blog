@@ -4,7 +4,7 @@ title:  "Merry Christmas!"
 date:   2014-12-25 23:20:10
 categories: post 
 ---
-##Xmas
+## Xmas
 Merry Christmas! How is your Christmas going? Do you receive anything from Santa?  
 <br>
 Here's a Christmas Art =3 
@@ -17,7 +17,7 @@ Two more days to <a href="http://comicfiesta.org">Comic Fiesta</a>, excited and 
 One more week until next year, how many new year resolution you have completed this year? I only managed to complete a few Orz  
 
 
-##Ruby
+## Ruby
 
 I started to learn Ruby through <a href="http://www.codecademy.com/en/tracks/ruby"> Codecademy </a> and found that their method and explanation are really simple and easy to follow, 
 but their interpreter sometimes doesn't accept answer beyond their preset input, anyhow I recommend this for people who are interested in Ruby, it's really fun following their tutorial.   

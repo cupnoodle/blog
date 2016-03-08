@@ -5,7 +5,7 @@ date:   2014-05-29 00:52:10
 categories: post
 ---
 
-##Introduction
+## Introduction
 
 I really like Ragnarok Online and it consist most of my early teenage year.  
 After it changed to pay to play model, I turned into private servers and subsequently interested in how to make a private ragnarok online server.  
@@ -13,7 +13,7 @@ Most guide I found online is a bit unclear so I decided to make one to help futu
 Note: This is kinda like gray area of law, hosting ragnarok server is not illegal but modification and distribution of client is, proceed carefully.
 
 
-##Prerequisite
+## Prerequisite
 In this guide I will assume you have a little bit knowledge on Linux command.
 
 I used <a href="https://www.digitalocean.com/?refcode=41d7946659b4">Digital Ocean</a> VPS for demonstration purpose.  
@@ -36,7 +36,7 @@ After setting up the new account, login with your new account to your server.
 
 
 
-##GUI for managing database  
+## GUI for managing database  
 To make it easier to manage database, we need to install nginx for web server,php for processing, MySQL for database and phpMyAdmin to access database using GUI.  
 I prefer to use Nginx than Apache as it consumes less RAM. If you have a web server running before then you can skip to next section.  
 
@@ -65,7 +65,7 @@ Log in with your MySQL username and password.
 Create a database named <i>herculesrag</i> (or other name you like, I will use this name for the following section) using phpmyadmin before proceeding to next step.  
 
 
-##Installing and configuring Hercules server
+## Installing and configuring Hercules server
 We will be using Hercules server as emulator for Ragnarok Online's server.  
 First, install the dependency.  
 <code>apt-get install git make gcc mysql-server libmysqlclient-dev zlib1g-dev libpcre3-dev screen</code>  
@@ -138,7 +138,7 @@ To restart,
 
 Ta-dah! Your ragnarok server should be running fine now , cheers!  
 
-##Extra Information
+## Extra Information
 <a href="http://hercules.ws/wiki/Main_Page"> Hercules server official wiki</a>  
 <a href="http://hercules.ws/board/topic/3768-2013-12-23-full-client-download/"> Client files and tools </a>  
 
