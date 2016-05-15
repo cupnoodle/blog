@@ -242,7 +242,7 @@ kbd{
   padding-bottom: 15px;
 }
 
-.postwindow .content img{
+.postwindow .content img:not(.emoji){
   max-width:100% !important;
   height:auto;
   display:block;

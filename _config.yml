@@ -11,8 +11,12 @@ permalink: none
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://littlefox.es" # the base hostname & protocol for your site
 
+emoji:
+  src: "/img"
+
+
 # Gems
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, gemoji, html/pipeline]
 
 # Build settings
 markdown: kramdown
