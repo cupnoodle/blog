@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Heroku command reminder"
-date:   2016-05-14 22:10:10
+date:   2016-05-14 21:10:10
 categories: post
 post_id: 19
 ---
@@ -14,7 +14,6 @@ Since I got used to use Github to deploy apps to Heroku, I didn't type <code>her
 Let say you have a heroku app named <b>fluffytails</b> and you want to run <b>rake db:migrate</b>, then just enter <code>heroku run rake db:migrate -a fluffytails</code> on your local machine, thats it! Be sure to <b>heroku login</b> on your local machine first.
 
 Rails on Heroku is really easy and convenient, too bad the price escalates quickly when the RAM usage increase 😲 .
-
 
 
 
