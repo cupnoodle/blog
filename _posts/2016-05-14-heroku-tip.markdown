@@ -3,7 +3,7 @@ layout: post
 title:  "Heroku command reminder"
 date:   2016-05-14 21:10:10
 categories: post
-post_id: 19
+post_id: 20
 ---
 
 A short post to serve as a reminder in case I forgot it again.
