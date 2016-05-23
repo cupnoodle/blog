@@ -18,6 +18,7 @@ We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the r
 Create a new Ubuntu 14.04 server, for starter applications, 512MB memory should suffice. You can upgrade it easily should you need more memory in the future. Choose the 32 bit version of Ubuntu if your server memory is less than 4GB, as 64-bit programs consume 50% more memory compared to 32 bit programs. If there is possibility which your server will need more than 4GB RAM in the future, choose the 64 bit version.
 ![Choose OS](https://littlefoximage.s3.amazonaws.com/post21/choose_os.png)
 ![Choose Spec](https://littlefoximage.s3.amazonaws.com/post21/choose_spec.png)
+  
 
 ## Step Two - Create a Sudo user
   
@@ -34,6 +35,24 @@ The command above will add the user to _sudo_ group.
 Now you can logout and login as this user.  
 <code>exit</code>  
 <code>ssh demo@SERVER_IP_ADDRESS</code>  
+    
+
+## Optional Step - Setup Domain Name
+This step is omitted in this tutorial but you can [refer here](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean) if you want to setup a domain name to link to your server.
   
+
+## Step Four - Install Ruby using RVM
+Before performing any installation step, we should run a quick update to make sure the installation packages are up to date.  
+<code>sudo apt-get update</code><br><br>
+Next, we will install RVM (Ruby Version Manager). RVM allows us to install multiple version of ruby in the system but for this tutorial we will just install only one version of ruby.  Type the following command to install RVM.  
+<code>curl -L get.rvm.io | bash -s stable</code><br><br>
+If the GPG signature verification failed, type the command returned by the prompt, usually in this format : <br>
+<code>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</code> <br><br>
+After finished installing, load RVM.<br><br>
+<code>source ~/.rvm/scripts/rvm</code><br><br>
+RVM might have some dependencies which will need to be installed. To install, type   
+<code>rvm requirements</code><br><br>
+
+
 
 
