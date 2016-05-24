@@ -11,7 +11,7 @@ A post originally written for an upcoming workshop. This post assumes you have s
 ## Introduction
 
 If you are a Ruby on Rails developer and can't afford a PaaS like Heroku  💸 or want to learn how to setup rails on your own server, then this tutorial is perfect for you. 
-We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install ,configure and have decent performance. For this tutorial, we will install Passenger with Nginx on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
+We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
 
 ## Step One - Create your server / droplet
   
@@ -41,7 +41,7 @@ Now you can logout and login as this user.
 This step is omitted in this tutorial but you can [refer here](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean) if you want to setup a domain name to link to your server.
   
 
-## Step Four - Install Ruby using RVM
+## Step Four - Install RVM
 Before performing any installation step, we should run a quick update to make sure the installation packages are up to date.  
 <code>sudo apt-get update</code><br><br>
 Next, we will install RVM (Ruby Version Manager). RVM allows us to install multiple version of ruby in the system but for this tutorial we will just install only one version of ruby.  Type the following command to install RVM.  
@@ -50,9 +50,12 @@ If the GPG signature verification failed, type the command returned by the promp
 <code>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</code> <br><br>
 After finished installing, load RVM.<br><br>
 <code>source ~/.rvm/scripts/rvm</code><br><br>
-RVM might have some dependencies which will need to be installed. To install, type   
+RVM has some dependencies which are required to work, to install them, type :  
 <code>rvm requirements</code><br><br>
 
+## Step Five - Install Ruby  
+Use the rvm command to install ruby, the latest stable version of ruby as of writing this post is 2.3.1.  
+<code>rvm install 2.3.1</code>
 
 
 
