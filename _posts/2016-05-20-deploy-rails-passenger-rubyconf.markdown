@@ -10,7 +10,7 @@ A post originally written for an upcoming workshop. This post assumes you have s
 
 ## Introduction
 
-If you are a Ruby on Rails developer and can't afford a PaaS like Heroku  💸 or want to learn how to setup rails on your own server, then this tutorial is perfect for you. 
+If you are a Ruby on Rails developer who can't afford a PaaS like Heroku  💸, or want to learn how to setup rails on your own server, then this tutorial is perfect for you. 
 We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
 
 ## Step One - Create your server / droplet
@@ -55,7 +55,29 @@ RVM has some dependencies which are required to work, to install them, type :
 
 ## Step Five - Install Ruby  
 Use the rvm command to install ruby, the latest stable version of ruby as of writing this post is 2.3.1.  
-<code>rvm install 2.3.1</code>
+<code>rvm install 2.3.1</code><br><br>
+Ruby is now installed in your system, but we still need to tell the system to use version 2.3.1 as default.
+<code>rvm use 2.3.1 --default</code><br>
+
+## Step Six - Install Rails
+Ruby version 2.3.1 already included gem by default, to install rails, type :  
+<code> gem install rails --no-ri --no-rdoc </code><br>
+This command will install the rails gem without documentation (--no-ri --no-rdoc means without documentation) as you can find the [online documentation here](http://guides.rubyonrails.org/).  
+After installing rails, we will install nginx and passenger to support the rails app.  
+
+## Step Seven - Install Passenger
+Passenger is available as a gem too, simply install it using  
+<code> gem install passenger --no-ri --no-rdoc </code><br>  
+
+## Step Eight - Install Nginx
+Before proceeding to install, if your server has less than 1GB of RAM, you will have to add some swap space. You can skip this step if your server has more than 1GB of RAM.<br>
+<code> sudo dd if=/dev/zero of=/swap bs=1M count=1024 </code>  
+<code> sudo mkswap /swap </code>  
+<code> sudo swapon /swap </code>
+<br><br>
+
+Now we will install Nginx web server with passenger module  
+<code>rvmsudo passenger-install-nginx-module</code><br>
 
 
 

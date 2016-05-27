@@ -18,7 +18,8 @@ code{
  white-space: -pre-wrap;      /* Opera 4-6 */
  white-space: -o-pre-wrap;    /* Opera 7 */
 
- word-wrap: break-word;
+ /* word-wrap: normal; */
+ word-wrap: break-word; 
 
  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
  letter-spacing: 0;
