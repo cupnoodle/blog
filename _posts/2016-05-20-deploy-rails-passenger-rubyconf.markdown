@@ -10,7 +10,7 @@ A post originally written for an upcoming workshop. This post assumes you have s
 
 ## Introduction
 
-If you are a Ruby on Rails developer who can't afford a PaaS like Heroku  💸, or want to learn how to setup rails on your own server, then this tutorial is perfect for you. 
+If you are a Ruby on Rails developer who can't afford a PaaS like Heroku  💸, or want to learn how to setup rails on your own server, then this tutorial is suitable for you. 
 We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
 
 ## Step One - Create your server / droplet
@@ -76,8 +76,12 @@ Before proceeding to install, if your server has less than 1GB of RAM, you will 
 <code> sudo swapon /swap </code>
 <br><br>
 
+We will also need to install Curl development headers with SSL support : <br>
+<code> sudo apt-get install libcurl4-openssl-dev </code>
+<br><br>
+
 Now we will install Nginx web server with passenger module  
-<code>rvmsudo passenger-install-nginx-module</code><br>
+<code> rvmsudo passenger-install-nginx-module </code><br>
 
 
 
