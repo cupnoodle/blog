@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deploy Rails using Passenger on VPS"
+title:  "Deploy Rails using Passenger on VPS (Part 1)"
 date:   2016-05-20 21:10:10
 categories: post
 post_id: 21
@@ -47,11 +47,14 @@ Before performing any installation step, we should run a quick update to make su
 Next, we will install RVM (Ruby Version Manager). RVM allows us to install multiple version of ruby in the system but for this tutorial we will just install only one version of ruby.  Type the following command to install RVM.  
 <code>curl -L get.rvm.io | bash -s stable</code><br><br>
 If the GPG signature verification failed, type the command returned by the prompt, usually in this format : <br>
-<code>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</code> <br><br>
-After finished installing, load RVM.<br><br>
+<code>gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</code> <br>
+then retry the RVM installation command again. <br><br>
+
+After finished installing, load RVM.<br>
 <code>source ~/.rvm/scripts/rvm</code><br><br>
 RVM has some dependencies which are required to work, to install them, type :  
-<code>rvm requirements</code><br><br>
+<code>rvm requirements</code><br>
+you might be prompted to enter your password for this command. <br><br>
 
 ## Step Five - Install Ruby  
 Use the rvm command to install ruby, the latest stable version of ruby as of writing this post is 2.3.1.  
@@ -61,27 +64,49 @@ Ruby is now installed in your system, but we still need to tell the system to us
 
 ## Step Six - Install Rails
 Ruby version 2.3.1 already included gem by default, to install rails, type :  
-<code> gem install rails --no-ri --no-rdoc </code><br>
+<code>gem install rails --no-ri --no-rdoc</code><br>
 This command will install the rails gem without documentation (--no-ri --no-rdoc means without documentation) as you can find the [online documentation here](http://guides.rubyonrails.org/).  
 After installing rails, we will install nginx and passenger to support the rails app.  
 
 ## Step Seven - Install Passenger
 Passenger is available as a gem too, simply install it using  
-<code> gem install passenger --no-ri --no-rdoc </code><br>  
+<code>gem install passenger --no-ri --no-rdoc</code><br>  
 
 ## Step Eight - Install Nginx
 Before proceeding to install, if your server has less than 1GB of RAM, you will have to add some swap space. You can skip this step if your server has more than 1GB of RAM.<br>
-<code> sudo dd if=/dev/zero of=/swap bs=1M count=1024 </code>  
-<code> sudo mkswap /swap </code>  
-<code> sudo swapon /swap </code>
-<br><br>
+<code>sudo dd if=/dev/zero of=/swap bs=1M count=1024</code>  
+<code>sudo mkswap /swap</code>  
+<code>sudo swapon /swap</code>
+<br>
 
 We will also need to install Curl development headers with SSL support : <br>
-<code> sudo apt-get install libcurl4-openssl-dev </code>
-<br><br>
+<code>sudo apt-get install libcurl4-openssl-dev</code>
+<br>
 
 Now we will install Nginx web server with passenger module  
-<code> rvmsudo passenger-install-nginx-module </code><br>
+<code>rvmsudo passenger-install-nginx-module</code><br>
 
+//add screenshot here  
+
+Take note of the Nginx configuration file location.
+After installing, we will add a system startup script for nginx so that we can easily start/stop/restart it next time.(Taken from [http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service](http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service) )<br><br> 
+Download the Nginx startup script from linode documentation. (Thanks good guy Linode!)  
+<code>wget -O init-deb.sh https://www.linode.com/docs/assets/660-init-deb.sh</code>
+
+Then move the script to the init.d directory and make it executable  
+<code>sudo mv init-deb.sh /etc/init.d/nginx</code><br>
+<code>sudo chmod +x /etc/init.d/nginx</code>
+
+Add Nginx to the system startup  
+<code>sudo /usr/sbin/update-rc.d -f nginx defaults</code>
+
+Then we can start the Nginx web server using :  
+<code>sudo service nginx start</code>
+
+//add screenshot here  
+
+## Step Nine - Install NodeJS (Javascript Runtime)
+Before creating a new rails project, we will have to install a javascript runtime first as rails require javascript runtime to work. We will be installing NodeJS for its javascript runtime :   
+<code>sudo apt-get install nodejs</code>
 
 
