@@ -3,6 +3,7 @@ layout: post
 title:  "Why everyone should work in customer service at least once"
 date:   2015-05-29 22:28:10
 categories: post 
+post_id: 14
 ---
 
 I worked for a short brief period of half year as an IT technical support at a private school before enrolling into university with two of my friends. Our workspace is located inside a computer lab where computer classes are conducted and school servers are located. Primarily our main customers are students, teachers, school staffs and even some external client (referred by teacher or staff).  

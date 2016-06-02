@@ -3,6 +3,7 @@ layout: post
 title:  "How to install and deploy Rails on Nginx without Capistrano or Unicorn"
 date:   2015-05-19 20:55:10
 categories: post 
+post_id: 13
 ---
 
 <h2><span style="font-weight: normal;">Introduction</span></h2>

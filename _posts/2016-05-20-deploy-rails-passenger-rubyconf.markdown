@@ -87,6 +87,12 @@ Now we will install Nginx web server with passenger module
 <code>rvmsudo passenger-install-nginx-module</code><br>
 
 //add screenshot here  
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger.png)
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger2.png)
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger3.png)
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger4.png)
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger5.png)
+
 
 Take note of the Nginx configuration file location.
 After installing, we will add a system startup script for nginx so that we can easily start/stop/restart it next time.(Taken from [http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service](http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service) )<br><br> 
@@ -104,6 +110,7 @@ Then we can start the Nginx web server using :
 <code>sudo service nginx start</code>
 
 //add screenshot here  
+![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/nginx_success.png)
 
 ## Step Nine - Install NodeJS (Javascript Runtime)
 Before creating a new rails project, we will have to install a javascript runtime first as rails require javascript runtime to work. We will be installing NodeJS for its javascript runtime :   
