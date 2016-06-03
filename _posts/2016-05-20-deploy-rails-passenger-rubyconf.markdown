@@ -11,7 +11,7 @@ A post originally written for an upcoming workshop. This post assumes you have s
 ## Introduction
 
 If you are a Ruby on Rails developer who can't afford a PaaS like Heroku  💸, or want to learn how to setup rails on your own server, then this tutorial is suitable for you. 
-We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
+We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx and also PostgreSQL on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
 
 ## Step One - Create your server / droplet
   
@@ -86,16 +86,22 @@ We will also need to install Curl development headers with SSL support : <br>
 Now we will install Nginx web server with passenger module  
 <code>rvmsudo passenger-install-nginx-module</code><br>
 
-//add screenshot here  
+Type in your password if it prompts, after that you will be presented to a screen like this :   
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger.png)
+Press <kbd>enter</kbd> to continue  
+
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger2.png)
+Press <kbd>space</kbd> to select the language/framework you want, we will be selecting only Ruby for this tutorial.  
+
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger3.png)
+Type 1 and press enter unless you know what you are doing 😅.
+
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger4.png)
+Press <kbd>enter</kbd> when it ask which directory to install, we will be using default. (default installation directory is <strong>/opt/nginx</strong>) Grab a bite or coffee while the installation is running, this might take quite some time.  
+
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/install_passenger5.png)
-
-
-Take note of the Nginx configuration file location.
-After installing, we will add a system startup script for nginx so that we can easily start/stop/restart it next time.(Taken from [http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service](http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service) )<br><br> 
+Press enter and continue. Take note of the Nginx configuration file location.
+After installing, we will add a system startup script for nginx so that we can easily start/stop/restart it next time. (From [http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service](http://askubuntu.com/questions/257108/trying-to-start-nginx-on-vps-i-get-nginx-unrecognized-service) )<br><br> 
 Download the Nginx startup script from linode documentation. (Thanks good guy Linode!)  
 <code>wget -O init-deb.sh https://www.linode.com/docs/assets/660-init-deb.sh</code>
 
@@ -109,11 +115,21 @@ Add Nginx to the system startup
 Then we can start the Nginx web server using :  
 <code>sudo service nginx start</code>
 
-//add screenshot here  
+_Tips : After adding the Nginx start up script, we can use the following command :_   
+<code>sudo service nginx start</code><br>
+<code>sudo service nginx stop</code><br>
+<code>sudo service nginx restart</code><br>   
+
+After starting Nginx, you can now type in the server IP address in browser and you should see a Nginx welcome page.
+
 ![Press enter to continue](https://littlefoximage.s3.amazonaws.com/post21/nginx_success.png)
 
 ## Step Nine - Install NodeJS (Javascript Runtime)
 Before creating a new rails project, we will have to install a javascript runtime first as rails require javascript runtime to work. We will be installing NodeJS for its javascript runtime :   
-<code>sudo apt-get install nodejs</code>
+<code>sudo apt-get install nodejs</code><br>  
 
+## Step Ten - Install PostgreSQL  
+We will install PostgreSQL as the database for rails as it is the most pouplar RDBMS for rails.<br>
+<code>sudo apt-get install postgresql postgresql-contrib</code>  
+By default, Postgresql will create a database user/role named '**postgres**'. We will need to login using this account and create a new user/role and also database schema.
 
