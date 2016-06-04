@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deploy Rails using Passenger on VPS (Part 1)"
+title:  "Setup and Deploy Rails using Passenger on VPS (Part 1)"
 date:   2016-05-20 21:10:10
 categories: post
 post_id: 21
@@ -27,14 +27,14 @@ First you have to login to your server as root, open up terminal and type <br> <
 Now we will create a user with sudo privilege and we will login as the user after this step. It is dangerous running command as root because root has the absolute power to do anything and you might damage the system using root if not careful.
 
 To create user, replace the _demo_ with your desired name : <br>
-<code>adduser demo</code><br><br>
+<code>adduser <span style="color: #F20B2E;">demo</span></code><br><br>
 After entering password, you can just press enter to skip the field.  
 To grant administrative power (able to execute command with sudo put in front) to the user, type the command below using root account, replace the _demo_ with your username : <br>
-<code>gpasswd -a demo sudo</code><br>
+<code>gpasswd -a <span style="color: #F20B2E;">demo</span> sudo</code><br>
 The command above will add the user to _sudo_ group.  
 Now you can logout and login as this user.  
 <code>exit</code>  
-<code>ssh demo@SERVER_IP_ADDRESS</code>  
+<code>ssh <span style="color: #F20B2E;">demo</span>@SERVER_IP_ADDRESS</code>  
     
 
 ## Optional Step - Setup Domain Name
@@ -131,5 +131,27 @@ Before creating a new rails project, we will have to install a javascript runtim
 ## Step Ten - Install PostgreSQL  
 We will install PostgreSQL as the database for rails as it is the most pouplar RDBMS for rails.<br>
 <code>sudo apt-get install postgresql postgresql-contrib</code>  
-By default, Postgresql will create a database user/role named '**postgres**'. We will need to login using this account and create a new user/role and also database schema.
+By default, Postgresql will create a database user/role named '**postgres**'. We will need to login using this account and create a new user/role.  
+
+Type the command below to create a new superuser for the database. The command below will use the postgres account (in the operating system) to create a superuser named <strong>demo</strong> for the database, change the <strong>demo</strong> to your desired username.  
+<code>sudo -u postgres createuser -s <span style="color: #F20B2E;">demo</span></code>  
+
+After creating the database user, we will need to set a password for the user. First, log into the PostgreSQL console using the postgres system account :  
+<code>sudo -u postgres psql</code>  
+
+If you see the <strong>postgres=#</strong> prompt, means you are inside the PostgreSQL console. In the PostgreSQL prompt, enter this command to set password for the newly created user :   
+<code>\password <span style="color: #F20B2E;">demo</span></code>  
+
+Your screen should look similar to this :
+![PostgreSQL console](https://littlefoximage.s3.amazonaws.com/post21/postgres_prompt.png)  
+
+After setting the password, type <code>\q</code> to quit the console.  
+
+Don't forget to install PostgreSQL gem so that the rails app can communicate with the database :   
+<code>gem install pg --no-ri --no-rdoc</code>
+
+## Next Part - Git push and deploying
+
+Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the next post.  
+
 
