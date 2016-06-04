@@ -22,7 +22,7 @@ Create a new Ubuntu 14.04 server, for starter applications, 512MB memory should 
 
 ## Step Two - Create a Sudo user
   
-First you have to login to your server as root, open up terminal and type <br> <code>ssh root@SERVER_IP_ADDRESS</code> <br> where SERVER_IP_ADDRESS is your server IP address. You will be prompted to input password that is sent to you by email if you didn't specify ssh key during server creation. If it is your first time connecting to ther server, you will be prompted about host authenticity, choose allow/yes. You might be prompted to change the root password in this case too.  
+First you have to login to your server as root, open up terminal and type <br> <code>ssh root@SERVER_IP_ADDRESS</code> <br>Replace SERVER_IP_ADDRESS is your server IP address. You will be prompted to input password that is sent to you by email if you didn't specify ssh key during server creation. If it is your first time connecting to ther server, you will be prompted about host authenticity, choose allow/yes. You might be prompted to change the root password in this case too.  
 
 Now we will create a user with sudo privilege and we will login as the user after this step. It is dangerous running command as root because root has the absolute power to do anything and you might damage the system using root if not careful.
 
@@ -153,5 +153,5 @@ Don't forget to install PostgreSQL gem so that the rails app can communicate wit
 ## Next Part - Git push and deploying
 
 Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the next post.  
-
+![Asriel Howdy](https://littlefoximage.s3.amazonaws.com/post21/howdy.png) 
 
