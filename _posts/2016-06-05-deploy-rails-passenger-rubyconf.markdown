@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Setup and Deploy Rails using Passenger on VPS (Part 1)"
-date:   2016-05-20 21:10:10
+date:   2016-06-05 21:10:10
 categories: post
 post_id: 21
 ---
