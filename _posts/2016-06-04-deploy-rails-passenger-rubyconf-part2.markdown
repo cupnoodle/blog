@@ -12,19 +12,42 @@ This post is a continuation from [here]({% post_url 2016-06-04-deploy-rails-pass
 
 ## Step Eleven - Install git and creating a repository
 
-Easily install git on the VPS using this command :  
+Install git on the VPS using this command :  
 <code>sudo apt-get install git-core</code><br>
 
-After installing Git, we will now create a blank git repository named <strong>awesomeapp</strong>, let's put the repository on your user folder for this tutorial ( you can of course change to other location ).  
+After installing Git, we will now create a bare git repository named <strong>awesomeapp.git</strong> and a folder to store the source code <strong>awesomeapp</strong>, let's put the repository on your user folder for this tutorial ( you can of course change to other location ).  
 <code>cd ~ </code>  
+<code>mkdir awesomeapp</code>  
 <code>mkdir repo && cd repo</code>  
 <code>mkdir awesomeapp.git && cd awesomeapp.git</code>  
 <code>git init --bare</code>  
 
-<strong>--bare</strong> indicate that the folder will have no working files, just the version control.  
+<strong>--bare</strong> indicates that the repository will have no working files / source code, just the version control.  
 
-Type <code>pwd</code> to get your present working directory, you will need this later for adding git remote on your local development machine ( most probably your laptop/pc ). My output looks like this :  
+Type <code>pwd</code> to get your present working directory, you will need this later. My output looks like this :  
 ![pwd](https://littlefoximage.s3.amazonaws.com/post22/pwd.png)  
+
+Next, we will dive into the git hooks to add a work tree directory (where your source code will be stored), more info about [git hooks here](http://githooks.com/). We will use the <strong>post-receive</strong> hook as it is executed after a git push has finished receiving.
+
+Inside <strong>awesomeapp.git</strong> directory, if you type <code>ls</code>, you can see the list of files and folders like this :  
+![git inner mysteries](https://littlefoximage.s3.amazonaws.com/post22/git_inner.png)  
+
+Go to the <strong>hooks</strong> folder  
+<code>cd hooks</code>  
+Create a file named 'post-receive' :  
+<code>cat > post-receive </code><br><br>
+When you execute the command above, you will see a blank line indicating that everything you type will be saved to this file. Let's proceed to type : <br>
+<pre>
+#!/bin/sh
+git --work-tree=/home/soulchild/awesomeapp --git-dir=/home/soulchild/repo/awesomeapp.git checkout -f
+</pre>  
+Replace the <strong>work-tree</strong> directory with your desired location, this is the place where the source code will be saved.  
+Replace the <strong>git-dir</strong> directory with the bare git repository you created just now.   
+
+After finish typing, press <kbd>Ctrl</kbd> + <kbd>D</kbd> to save. We need to allow permissions for the file to be executable :    
+<code>chmod +x post-receive</code>
+
+Now the source code will be saved in the <strong>work-tree</strong> every time a git push is received by the <strong>awesomeapp.git</strong> repository.
 
 {% comment %}
 ### Optional but recommended step - Set up git hooks
@@ -45,7 +68,7 @@ Now lets go to <strong>hooks</strong> folder
 <strong>Now on your local machine ( your laptop/pc )</strong>, locate to your existing Rails application or create one if you don't have one :  
 <code>rails new awesomeapp -d postgresql</code><br>
 
-And then open <strong>/config/database.yml</strong> of the rails app, scroll to bottom and edit the production database username to look like this :  
+And then open <strong>/config/database.yml</strong> of the rails app, scroll to the bottom and edit the production database username to look like this :  
 <script src="https://gist.github.com/cupnoodle/b2b63c556064a89fca1f7c59968316b8.js"></script>  
 
 We will also generate a secret key for the production secret key base.  
@@ -61,18 +84,20 @@ Remember the present working directory from the previous step? We will add it to
 <code>git init</code><br>
 
 Then add the remote : <br>
-<code>git remote add <span style="color: #F20B2E;">live</span> ssh://<span style="color: #F20B2E;">user</span>@<span style="color: #F20B2E;">YOUR_SERVER_IP_OR_DOMAIN_NAME</span>/<span style="color: #F20B2E;">repo_location</span>/.git</code>
+<code>git remote add <span style="color: #F20B2E;">live</span> ssh://<span style="color: #F20B2E;">user</span>@<span style="color: #F20B2E;">YOUR_SERVER_IP_OR_DOMAIN_NAME</span>/<span style="color: #F20B2E;">repo_location</span></code>
 
 <strong>live</strong> is the name of the remote, you can change this to whatever name you like.  
 <strong>user</strong> is the username you used to login to the ssh, change this to your ssh username.  
 <strong>YOUR_SERVER_IP_OR_DOMAIN_NAME</strong> is pretty much self-explanatory.  
-<strong>repo_location</strong> is the location of the repository in the VPS, replace this with the present working directory mentioned in previous step.  
-
-Below is the git remote command I used :  
-![Git remote add](https://littlefoximage.s3.amazonaws.com/post22/git_add_remote.png)  
+<strong>repo_location</strong> is the location of the repository in the VPS, replace this with the bare git repository mentioned in the previous step (eg: 'home/soulchild/repo/awesomeapp.git').
+<br>  
 
 And now you are ready to push to the remote VPS, replace <strong>live</strong> with the remote name you have chosen just now.  
 <code>git add -A</code>  
 <code>git commit -m "Awesome app first commit"</code>  
 <code>git push live master</code>  
+
+Sweet! Next, lets edit the Nginx configuration to serve the Rails app and include environment variables as well.  
+
+## Step Thirteen - Edit Nginx Configuration file and Misc
 

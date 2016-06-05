@@ -27,6 +27,19 @@ code{
  font-weight: 400;
 }
 
+pre{
+  overflow-x: scroll;
+  border: 1px solid #444;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: #474747;
+  color: #EEE;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 strong{
   font-weight: 600;
 }
