@@ -11,7 +11,9 @@ A post originally written for an upcoming workshop. This post assumes you have s
 ## Introduction
 
 If you are a Ruby on Rails developer who can't afford a PaaS like Heroku  💸, or want to learn how to setup rails on your own server, then this tutorial is suitable for you. 
-We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx and also PostgreSQL on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!
+We will be using [Phusion Passenger](https://www.phusionpassenger.com/) as the rails app server and [Nginx](https://www.nginx.com) as the web server. Passenger is one of the easiest app server to install, configure and have decent performance. For this tutorial, we will install Passenger with Nginx and also PostgreSQL on Ubuntu 14.04 . We will be using [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) for its VPS, you can sign up using [this link](https://m.do.co/c/f7f1b47b1fff) for $10 free credit!  
+  
+Disclaimer : This tutorial demonstrates the basic steps needed to get a Rails app running on your own VPS and might not be the best to deploy. I am aware of existing deployment/provisioning tools like Capistrano, Chef , Dokku etc can make the workflow better but the aim of this tutorial is to show the basic steps for setting up and deploy. I have also skipped server security measure as it is out of scope for this tutorial, remember to disallow root login and change the default ssh port for better security.  
 
 ## Step One - Create your server / droplet
   
@@ -38,7 +40,7 @@ Now you can logout and login as this user.
     
 
 ## Optional Step - Setup Domain Name
-This step is omitted in this tutorial but you can [refer here](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean) if you want to setup a domain name to link to your server.
+This step is omitted in this tutorial but you can [refer here](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean) if you want to setup a domain name to link to your server.  
   
 
 ## Step Four - Install RVM
@@ -130,10 +132,10 @@ Before creating a new rails project, we will have to install a javascript runtim
 
 ## Step Ten - Install PostgreSQL  
 We will install PostgreSQL as the database for rails as it is the most pouplar RDBMS for rails.<br>
-<code>sudo apt-get install postgresql postgresql-contrib</code>  
+<code>sudo apt-get install postgresql postgresql-contrib libpq-dev</code>  
 By default, Postgresql will create a database user/role named '**postgres**'. We will need to login using this account and create a new user/role.  
 
-Type the command below to create a new superuser for the database. The command below will use the postgres account (in the operating system) to create a superuser named <strong>demo</strong> for the database, change the <strong>demo</strong> to your desired username.  
+Type the command below to create a new superuser for the database. The command below will use the postgres account (in the operating system) to create a superuser named <strong>demo</strong> for the database, change the <strong>demo</strong> to match the username of the sudo user you created in step two.  
 <code>sudo -u postgres createuser -s <span style="color: #F20B2E;">demo</span></code>  
 
 After creating the database user, we will need to set a password for the user. First, log into the PostgreSQL console using the postgres system account :  
@@ -152,6 +154,6 @@ Don't forget to install PostgreSQL gem so that the rails app can communicate wit
 
 ## Next Part - Git push and deploying
 
-Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the next post.  
+Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the [next post]({% post_url 2016-06-04-deploy-rails-passenger-rubyconf-part2 %}).  
 ![Asriel Howdy](https://littlefoximage.s3.amazonaws.com/post21/howdy.png) 
 

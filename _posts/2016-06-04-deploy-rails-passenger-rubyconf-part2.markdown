@@ -68,7 +68,9 @@ Now lets go to <strong>hooks</strong> folder
 <strong>Now on your local machine ( your laptop/pc )</strong>, locate to your existing Rails application or create one if you don't have one :  
 <code>rails new awesomeapp -d postgresql</code><br>
 
-And then open <strong>/config/database.yml</strong> of the rails app, scroll to the bottom and edit the production database username to look like this :  
+If you creating a new Rails application, make sure to point the root route to a controller action first.  
+
+Open <strong>/config/database.yml</strong> of the rails app, scroll to the bottom and edit the production database username to look like this :  
 <script src="https://gist.github.com/cupnoodle/b2b63c556064a89fca1f7c59968316b8.js"></script>  
 
 We will also generate a secret key for the production secret key base.  
@@ -97,7 +99,70 @@ And now you are ready to push to the remote VPS, replace <strong>live</strong> w
 <code>git commit -m "Awesome app first commit"</code>  
 <code>git push live master</code>  
 
-Sweet! Next, lets edit the Nginx configuration to serve the Rails app and include environment variables as well.  
+Sweet! Next, let's edit the Nginx configuration to serve the Rails app and include environment variables as well.  
 
-## Step Thirteen - Edit Nginx Configuration file and Misc
+## Step Thirteen - Edit Nginx Configuration file and deploy
 
+Connect to your VPS using ssh  
+<code>ssh <span style="color: #F20B2E;">demo</span>@SERVER_IP_ADDRESS</code>  
+Edit the Nginx configuration file using nano  
+<code>sudo nano /opt/nginx/conf/nginx.conf</code>  
+
+In the server block inside http block, edit it to look like this : 
+<pre>server {
+        listen       80;
+        server_name  localhost;
+        root /path/to/rails_app_root/public; # <-- be sure to point to 'public'
+        passenger_app_root /path/to/rails_app_root;
+        passenger_enabled on;
+        rack_env production;
+        passenger_env_var SECRET_KEY_BASE d6532f57f0e1f5150f38ef413fd85c2c9081195431177950d6e44248822ab3d05bb2619871c29a8367d95ff04abaaba84bfc4433f37d089c9437c3e2e1efadc6;
+        passenger_env_var AWESOMEAPP_DATABASE_USERNAME demo;
+        passenger_env_var AWESOMEAPP_DATABASE_PASSWORD correcthorsebatterystaple;
+}
+</pre>
+
+1. Replace the <strong>/path/to/rails_app_root/</strong> with the work tree you defined in previous step.  
+2. <strong>rack_env</strong> is the environment of the rails app, we set it to production.  
+3. <strong>passenger_env_var</strong> is used to define environment variables, you can define multiple environment variables in the config file. Replace the value of environment variables above with yours.  
+
+Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing and type 'Y' when prompted to save.
+<br>
+Your nginx.conf will look similar to this :  
+
+<script src="https://gist.github.com/cupnoodle/6a48e77e6243fc2c4c05f9e34b2d58a4.js"></script>
+
+Now we will move to the Rails application root directory (the work tree),  
+<code>cd ~/awesomeapp</code>  
+
+Run bundle install  
+<code>bundle install</code>  
+
+Precompile assets, remember to set the RAILS_ENV to production  
+<code>rake assets:precompile RAILS_ENV=production</code>  
+
+Run rake:db create to create database  
+<code>rake db:create RAILS_ENV=production</code>  
+
+And finally restart the Nginx server to update the changes  
+<code>sudo service nginx restart</code>  
+
+## Step Fourteen - Cheers!
+
+Now navigate to your VPS IP /domain name in the browser, you should see your Rails app running. 🍻  
+![Bye Heroku](https://littlefoximage.s3.amazonaws.com/post22/deployed.png "Bye Heroku!")   
+
+Next time whenever you git push a new update to remote, remember to login to the VPS and run these commands :  
+
+1. bundle install  
+2. rake assets:precompile RAILS_ENV=production  
+3. rake db:migrate RAILS_ENV=production  
+4. **sudo service nginx restart** 
+
+Nginx server must be restarted to reflect the changes after every git push.  
+
+You might ask why we need to repetitively execute these commands after git push, there must be a better way to automate this right? Yes there is, we can add these command to run in the post-receive hook, remember?
+
+{% comment %}
+https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-git-hooks-on-ubuntu-14-04
+{% endcomment %}
