@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Setup and Deploy Rails using Passenger on VPS - Part 2"
-date:   2016-06-04 21:10:10
+date:   2016-06-05 21:10:10
 categories: post
 post_id: 22
 ---
@@ -161,7 +161,22 @@ Next time whenever you git push a new update to remote, remember to login to the
 
 Nginx server must be restarted to reflect the changes after every git push.  
 
-You might ask why we need to repetitively execute these commands after git push, there must be a better way to automate this right? Yes there is, we can add these command to run in the post-receive hook, remember?
+Wait.... why do we need to repetitively execute these commands after git push, there must be a better way to automate this right? Yes there is! we can add these command to run in the post-receive hook, remember?  
+
+## Step Fifteen - Adding deployment task to post-receive hooks
+
+Lets go to the repository of the rails app again and edit the post-receive hook :  
+<code>cd ~/repo/awesomeapp.git</code>  
+<code>cd hooks</code>  
+<code>nano post-receive</code>   
+
+We will edit it to look like this :  
+<script src="https://gist.github.com/cupnoodle/50db5e50c31b32a44766e927a57d28ad.js"></script>
+Replace the work tree and git dir accordingly, press <kbd>Ctrl</kbd> + <kbd>X</kbd> to end editing.  
+
+Notice that there is a sudo command which is the <strong>sudo service nginx restart</strong>, executing a sudo command requires a password input hence the restart command will not run in this post-receive hook. We have to manually set that no password is required for this command (sudo service nginx restart) for the user (the sudo user you created).<br><br>
+Let's edit the user file in sudoers.d directory, replace <strong>demo</strong> with your username :    
+<code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code> 
 
 {% comment %}
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-git-hooks-on-ubuntu-14-04

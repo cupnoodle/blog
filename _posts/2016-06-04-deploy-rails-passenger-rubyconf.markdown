@@ -154,6 +154,6 @@ Don't forget to install PostgreSQL gem so that the rails app can communicate wit
 
 ## Next Part - Git push and deploying
 
-Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the [next post]({% post_url 2016-06-04-deploy-rails-passenger-rubyconf-part2 %}).  
+Howdy! You have made it through the installation part, give yourself a pat on the back and we will continue the deploying process using git in the [next post]({% post_url 2016-06-05-deploy-rails-passenger-rubyconf-part2 %}).  
 ![Asriel Howdy](https://littlefoximage.s3.amazonaws.com/post21/howdy.png) 
 
