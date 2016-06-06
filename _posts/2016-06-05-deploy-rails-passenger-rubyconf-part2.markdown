@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Setup and Deploy Rails using Passenger on VPS - Part 2"
+title:  "Setup and Deploy Rails using Passenger - Part 2"
 date:   2016-06-05 21:10:10
 categories: post
 post_id: 22
@@ -13,7 +13,7 @@ This post is a continuation from [here]({% post_url 2016-06-04-deploy-rails-pass
 ## Step Eleven - Install git and creating a repository
 
 Install git on the VPS using this command :  
-<code>sudo apt-get install git-core</code><br>
+<code>sudo apt-get install git</code><br>
 
 After installing Git, we will now create a bare git repository named <strong>awesomeapp.git</strong> and a folder to store the source code <strong>awesomeapp</strong>, let's put the repository on your user folder for this tutorial ( you can of course change to other location ).  
 <code>cd ~ </code>  
@@ -126,7 +126,7 @@ In the server block inside http block, edit it to look like this :
 2. <strong>rack_env</strong> is the environment of the rails app, we set it to production.  
 3. <strong>passenger_env_var</strong> is used to define environment variables, you can define multiple environment variables in the config file. Replace the value of environment variables above with yours.  
 
-Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing and type 'Y' when prompted to save.
+Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing, type 'Y' and press <kbd>Enter</kbd> when prompted to save.
 <br>
 Your nginx.conf will look similar to this :  
 
@@ -141,10 +141,16 @@ Run bundle install
 Precompile assets, remember to set the RAILS_ENV to production  
 <code>rake assets:precompile RAILS_ENV=production</code>  
 
+Restart the Nginx server first so that the environment variables will be loaded :  
+<code>sudo service nginx restart</code>  
+
 Run rake:db create to create database  
 <code>rake db:create RAILS_ENV=production</code>  
 
-And finally restart the Nginx server to update the changes  
+Run rake:db migrate to migrate database  
+<code>rake db:migrate RAILS_ENV=production</code>  
+
+And finally restart the Nginx server again to update the changes  
 <code>sudo service nginx restart</code>  
 
 ## Step Fourteen - Cheers!
@@ -176,18 +182,20 @@ Replace the work tree and git dir accordingly, press <kbd>Ctrl</kbd> + <kbd>X</k
 
 Notice that there is a sudo command which is the <strong>sudo service nginx restart</strong>, executing a sudo command requires a password input hence the restart command will not run in this post-receive hook. We have to manually set that no password is required for this command (nginx) for the user (the sudo user you created).<br><br>
 Let's edit the user file in sudoers.d directory, replace <strong>demo</strong> with your username :    
-<code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code>  
+<code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code>  <br><br>
 Add this line to the end of the file , replace <strong>demo</strong> with your username :  
 <code><span style="color: #F20B2E;">demo</span> ALL=(ALL) NOPASSWD:/etc/init.d/nginx</code>  
-Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing, and type 'Y' to save.  
+Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing, type 'Y' and press <kbd>Enter</kbd> to save.  
 
 Now you should be good to go. In your local machine development repository, make a commit and push it the remote, you will see an output like this :  
-[insert screenshot here]  
+![Git push looks more magical now](https://littlefoximage.s3.amazonaws.com/post22/git_deploy_success.png "Git push looks more magical now")    
 
 And after receiving push, the server will run those deployment commands automatically and the web pages has changed :  
-[insert screenshot here]  
+![Look! No manual restart!](https://littlefoximage.s3.amazonaws.com/post22/deployed_with_auto.png "Look! No more manual deploy and restart!")   
 
-Now every time you push master branch to remote, the remote will deploy automatically. 
+Now every time you push master branch to remote, the remote will deploy automatically. Sounds like Heroku? 😜
+
+Congratulation for making this far! 🎉 You have learnt how to deploy Rails app on a bare VPS using git flow.  
 
 {% comment %}
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-git-hooks-on-ubuntu-14-04
