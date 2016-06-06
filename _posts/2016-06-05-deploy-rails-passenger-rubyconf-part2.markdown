@@ -174,9 +174,20 @@ We will edit it to look like this :
 <script src="https://gist.github.com/cupnoodle/50db5e50c31b32a44766e927a57d28ad.js"></script>
 Replace the work tree and git dir accordingly, press <kbd>Ctrl</kbd> + <kbd>X</kbd> to end editing.  
 
-Notice that there is a sudo command which is the <strong>sudo service nginx restart</strong>, executing a sudo command requires a password input hence the restart command will not run in this post-receive hook. We have to manually set that no password is required for this command (sudo service nginx restart) for the user (the sudo user you created).<br><br>
+Notice that there is a sudo command which is the <strong>sudo service nginx restart</strong>, executing a sudo command requires a password input hence the restart command will not run in this post-receive hook. We have to manually set that no password is required for this command (nginx) for the user (the sudo user you created).<br><br>
 Let's edit the user file in sudoers.d directory, replace <strong>demo</strong> with your username :    
-<code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code> 
+<code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code>  
+Add this line to the end of the file , replace <strong>demo</strong> with your username :  
+<code><span style="color: #F20B2E;">demo</span> ALL=(ALL) NOPASSWD:/etc/init.d/nginx</code>  
+Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing, and type 'Y' to save.  
+
+Now you should be good to go. In your local machine development repository, make a commit and push it the remote, you will see an output like this :  
+[insert screenshot here]  
+
+And after receiving push, the server will run those deployment commands automatically and the web pages has changed :  
+[insert screenshot here]  
+
+Now every time you push master branch to remote, the remote will deploy automatically. 
 
 {% comment %}
 https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-git-hooks-on-ubuntu-14-04
