@@ -68,7 +68,7 @@ Now lets go to <strong>hooks</strong> folder
 <strong>Now on your local machine ( your laptop/pc )</strong>, locate to your existing Rails application or create one if you don't have one :  
 <code>rails new awesomeapp -d postgresql</code><br>
 
-If you creating a new Rails application, make sure to point the root route to a controller action first.  
+If you are creating a new Rails application, make sure to point the root route to a controller action first.  
 
 Open <strong>/config/database.yml</strong> of the rails app, scroll to the bottom and edit the production database username to look like this :  
 <script src="https://gist.github.com/cupnoodle/b2b63c556064a89fca1f7c59968316b8.js"></script>  

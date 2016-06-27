@@ -8,7 +8,7 @@ title: Little Foxes
         {% for post in site.posts offset: 0 limit: 10 %}
 
         <div class="postheader">
-          <a href="{{ post.url | prepend: site.baseurl }}" class="title">{{ post.title }}</a><br><br>
+          <h4 class="posttitle"><a href="{{ post.url | prepend: site.baseurl }}" class="title">{{ post.title }}</a></h4>
           <span class="date">Posted on {{ post.date | date: "%-d %b %Y" }}</span>
         </div>
         

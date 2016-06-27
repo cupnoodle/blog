@@ -48,6 +48,10 @@ h1, h2, h3{
   font-weight: 500;
 }
 
+h4.posttitle {
+  margin-top: 0px;
+}
+
 a:link {
   font-weight: 500;
   color: #f0b272;
@@ -260,6 +264,14 @@ kbd{
   max-width:100% !important;
   height:auto;
   display:block;
+}
+
+.postwindow .content img.centered {
+  max-width:100% !important;
+  height:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 /* link in content with dotted underline */
