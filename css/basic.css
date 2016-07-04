@@ -266,6 +266,12 @@ kbd{
   display:block;
 }
 
+.postwindow .content img.screenshot{
+  max-width:100% !important;
+  height:auto;
+  display: inline;
+}
+
 .postwindow .content img.centered {
   max-width:100% !important;
   height:auto;
