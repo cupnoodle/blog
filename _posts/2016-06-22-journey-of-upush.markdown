@@ -14,7 +14,7 @@ post_id: 23
 During my final year in university (2015), an external digital agency collaborated with my university and organized a mobile app competition. I participated the competition with two of my friend and started building the iOS app and backend server together. The inspiration of the app came from the frustration and annoyance I faced with my university online learning portal, which was a customized [Moodle](https://moodle.org/) system.  
 
 ## Problems
-There are few problems with the customized Moodle system, first being not mobile responsive, it's a minor problem but I usually don't bring laptop to university, downloading lecture note from the portal using mobile is a pain which I have to zoom in every time. The second problem is that some lecturer often post class cancelation notice on the portal at last minute, which we will only know after we check the portal usually after arriving campus. I got really irritated with this problem and wished that I can receive a notification whenever a new notice is posted by the lecturer.
+There are few problems with the customized Moodle system, first being not mobile responsive, it's a minor problem but student usually don't bring laptop to university as most of us walk/cycle to campus and laptop is heavy. Downloading lecture note from the portal using mobile is a pain which I have to zoom in every time. The second problem is that some lecturer often post class cancelation notice on the portal at last minute, which we will only know after we check the portal usually after arriving campus. I got really irritated with this problem and wished that I can receive a notification whenever a new notice is posted by the lecturer.
 
 ## Implementation
 
@@ -39,16 +39,24 @@ I regained some confidence after the meeting with the agency, it validated that 
 ## Reignition
 After few months of the competition,  I have graduated from my university. Then a junior (Joshua) shown me an Android app mockup he did for uPush. He was really interested regarding to the app as it provided convenience to other students but at that time there wasn't an Android version and he was using an Android phone. He is really good in coding and he learn really fast, we agreed to let him do the Android app for uPush. During the development of the Android app, we also added timetable feature which student can check the timetable and schedule a reminder before the class, of course the timetable data is retrieved via scraping the university portal. I am really hyped during this period and I never thought that there were people interested enough to help the development of this app.
 
-After few weeks of passing the Android .apk file around our friends for beta testing, we felt that it was time to release it on the Google Play Store to let all of the student from my university know about it. We promoted the app via word of mouth through facebook and we got 600+ sign up after the day of release : 
+After few weeks of passing the Android .apk file around our friends for beta testing, we felt that it was time to release it on the Google Play Store to let all of the student from my university know about it. We promoted the app via word of mouth through facebook and we got 600+ sign up  the day after the release : 
 ![uPush release second day](https://littlefoximage.s3.amazonaws.com/post23/serveronfire.png)
 I didn't expect such overwhelming response and the backend server was logging 90% RAM usage which I can't even SSH into it due to insufficient RAM. I used [DigitalOcean](https://m.do.co/c/f7f1b47b1fff) 1GB RAM droplet for the backend server at that time. The server probably looks like this at that time :   
 <figure style="text-align:center;">
 <img class="centered" src="https://littlefoximage.s3.amazonaws.com/post23/serveronfire2.jpg" alt="Server on fire" />
 <figcaption>Screencap from Silicon Valley</figcaption>
 </figure>  
-To accomodate the load, I had to temporarily turn off the server at midnight and scaled it to 2GB RAM, praise the flexibility of cloud computing ☁️ 🖥. After the initial fever, we were getting 50-100 daily new user and 400-700 daily active users. We really excited about the app and response it received.
+To accomodate the load, I had to temporarily turn off the server at midnight and scaled it to 2GB RAM, praise the flexibility of cloud computing ☁️ . After the initial fever, we were getting 50-100 daily new user and 400-700 daily active users. We were really excited about the app and response it received.
 
 ## Rival
-Not long after the release of uPush, we started seeing the appearance of [WBLE Edition](https://www.facebook.com/wbleedition/), an app which did the exact functions like us, appeared in facebook feed. The app is also developed by a student in the same university and he started promoting in facebook. This further validated our idea as we see competitor started to appear, instead of worrying about our competitor, we felt more hyped.
+Not long after the release of uPush, we started seeing the appearance of [WBLE Edition](https://www.facebook.com/wbleedition/), an app which did the exact functions like us, appeared in facebook feed. The app is also developed by a student in the same university and he started promoting in facebook. This further validated our idea as we saw competitor started to appear, instead of worrying about our competitor, we feel more hyped.  
+
+## Request for collaboration which didn't turn well
+After the well received response, I emailed the university about uPush app and asked for collaboration as the app is scraping the university data and around 10% of the university students are using uPush at that time. I thought of asking them to develop API for retrieving the information inside the portal which can lessen the burden of both my scraping server and their portal server. 
+
+Of all the features, they only focused on the part which uPush app asked for student login credential, they were very frantic fearing that I might save these credential for future misuse/abuse. They offered to buy the full rights of the app from us and wanted us to stop the development but we declined as we wanted to continue developing/maintaining it. I assured them that the backend server does not store any credential and all of the communication between server and mobile app is encrypted with HTTPS. I even thought of sharing source code with them but they already started to implement anti-scraping measure on the portal almost instantly after the initial email.
+
+## Fun
+
 {% comment %}
 {% endcomment %}
