@@ -65,7 +65,7 @@ At first they implemented user-agent checking as I didn't spoof the user-agent h
 <script src="https://gist.github.com/cupnoodle/25326dd3d35c6a2d002e01ad84b9a7de.js"></script>
 
 ### Constant cookie value setting and validation
-They probably noticed the web scraper was still scraping using legitimate user agent now as I didn't change the server IP address. In the login web page they added some code like this :  
+They probably noticed the web scraper was still scraping using legitimate user agent now as I didn't change the server IP address. In the login web page they added some javascript code like this :  
 <script src="https://gist.github.com/cupnoodle/33d766e88bc86be09cccaa4eb5f6cf17.js"></script>
 Then the login server will check if the cookie value matched. Circumventing this is fairly easy as the correct value is already shown in the source of the login web page lulz. I edited the web scraping script to include the cookie value and it works again:  
 <script src="https://gist.github.com/cupnoodle/170a0372c33415ff59ae8aa1de7e6aba.js"></script>
