@@ -84,9 +84,9 @@ Good days don't last, we knew captcha will be implemented eventually and circumv
 <img class="centered" src="https://littlefoximage.s3.amazonaws.com/post23/recaptcha.png" alt="Recaptcha Login!" />  
 Now looking back, I wonder why they didn't implement captcha first compared to other measure. Maybe they don't want to degrade the user experience and captcha was their last resort?  
 
-We had no choice to stop the operation of uPush and posted a [statement](https://www.facebook.com/upushie/posts/1584823265181540) in the facebook page. We didn't take down and left the app in Play store/App store and started getting negative review on why the app doesn't work anymore. 😭  
+We had no choice but to stop the operation of uPush and posted a [statement](https://www.facebook.com/upushie/posts/1584823265181540) in the facebook page. We didn't take down and left the app in Play store/App store and started getting negative review on why the app doesn't work anymore. 😭  
 
-We started received emails from users inquiring about why the app doesn't work, and a [Github Issue](https://github.com/sweatshops/uPush_APK/issues/2) was filed too.
+We started receiving emails from users inquiring about why the app doesn't work, and a [Github Issue](https://github.com/sweatshops/uPush_APK/issues/2) was filed too.
 
 ## Epilogue
 This side project is hella' roller coaster ride, we experienced many euphoria and depressing moments. We got offered twice but we declined it without hesitation, we didn't regret it but some of our friends said we should have taken the offer, welp 😓. The side project can be considered a failure but during the development of this app I have learnt how to build an API for mobile consumption, some SysAdmin know-how, some basic Objective-C , met few supporting peers, and also mustered up the courage to contact people/university.  **But more importantly, reading play store review of users thanking us for making their university life more convenient is really priceless**, we felt really happy that we solved a little problem for them.
