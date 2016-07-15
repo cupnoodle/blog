@@ -10,9 +10,20 @@ module Jekyll
     class << self
       def emojify(doc)
         src = emoji_src(doc.site.config)
+        if doc.output =~ /<\s*body/
+          parsed_doc    = Nokogiri::HTML::Document.parse(doc.output)
+          body          = parsed_doc.at_css('body')
+          body.children = filter_with_emoji(src).call(EmojiParser.tokenize(body.inner_html) ) [:output].to_s
+          doc.output    = parsed_doc.to_html
+        else
+          # tokenize the raw input unicode emoji into token symbol form
+           doc.output = EmojiParser.tokenize(doc.output)
+           doc.output = filter_with_emoji(src).call(doc.output)[:output].to_s
+        end
+
         # tokenize the raw input unicode emoji into token symbol form
-        doc.output = EmojiParser.tokenize(doc.output)
-        doc.output = filter_with_emoji(src).call(doc.output)[:output].to_s
+        # doc.output = EmojiParser.tokenize(doc.output)
+        # doc.output = filter_with_emoji(src).call(doc.output)[:output].to_s
       end
 
       # Public: Create or fetch the filter for the given {{src}} asset root.

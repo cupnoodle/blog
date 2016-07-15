@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Setup and Deploy Rails using Passenger - Part 1"
+title:  "How to Deploy Rails using Passenger - Part 1"
+description: "How to setup and deploy rails using passenger and nginx"
 date:   2016-06-04 20:10:10
 categories: post
 post_id: 21
