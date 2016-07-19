@@ -151,8 +151,8 @@ Run rake:db create to create database
 Run rake:db migrate to migrate database  
 <code>rake db:migrate RAILS_ENV=production</code>  
 
-And finally restart the Nginx server again to update the changes  
-<code>sudo service nginx restart</code>  
+And finally restart the Passenger app to update the changes  
+<code>passenger-config restart-app <b>/path/to/rails_app_root</b></code>  
 
 ## Step Fourteen - Cheers!
 
@@ -164,9 +164,9 @@ Next time whenever you git push a new update to remote, remember to login to the
 1. bundle install  
 2. rake assets:precompile RAILS_ENV=production  
 3. rake db:migrate RAILS_ENV=production  
-4. **sudo service nginx restart** 
+4. passenger-config restart-app /path/to/rails_app_root  
 
-Nginx server must be restarted to reflect the changes after every git push.  
+Passenger app server must be restarted to reflect the changes after every git push.  
 
 Wait.... why do we need to repetitively execute these commands after git push, there must be a better way to automate this right? Yes there is! we can add these command to run in the post-receive hook, remember?  
 
@@ -179,14 +179,18 @@ Lets go to the repository of the rails app again and edit the post-receive hook 
 
 We will edit it to look like this :  
 <script src="https://gist.github.com/cupnoodle/50db5e50c31b32a44766e927a57d28ad.js"></script>
-Replace the work tree and git dir accordingly, press <kbd>Ctrl</kbd> + <kbd>X</kbd> to end editing.  
+Replace the work tree and git dir accordingly, press <kbd>Ctrl</kbd> + <kbd>X</kbd> to end editing. 
 
+
+<b>Edited 19 July 2016</b> : I found that restarting the Passenger app is sufficient without restarting Nginx, no sudo permission is required for restarting passenger app.<br>
+<s>
 Notice that there is a sudo command which is the <strong>sudo service nginx restart</strong>, executing a sudo command requires a password input hence the restart command will not run in this post-receive hook. We have to manually set that no password is required for this command (nginx) for the user (the sudo user you created).<br><br>
-Let's edit the user file in sudoers.d directory, replace <strong>demo</strong> with your username :    
+Let's edit the user file in sudoers.d directory, replace <strong>demo</strong> with your username :<br>
 <code>sudo visudo -f /etc/sudoers.d/90-<span style="color: #F20B2E;">demo</span></code>  <br><br>
-Add this line to the end of the file , replace <strong>demo</strong> with your username :  
+Add this line to the end of the file , replace <strong>demo</strong> with your username :<br>
 <code><span style="color: #F20B2E;">demo</span> ALL=(ALL) NOPASSWD:/etc/init.d/nginx</code>  
 Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to finish editing, type 'Y' and press <kbd>Enter</kbd> to save.  
+</s>
 
 Now you should be good to go. In your local machine development repository, make a commit and push it the remote, you will see an output like this :  
 ![Git push looks more magical now](https://littlefoximage.s3.amazonaws.com/post22/git_deploy_success.png "Git push looks more magical now")    
