@@ -44,6 +44,10 @@ Once the droplet is created, two user accounts **root** and **rails** will be cr
 
 Replace <strong>server.ip.address.here</strong> with your server IP address. You will be prompted to input password that is sent to you by email if you didn’t specify ssh key during server creation. If it is your first time connecting to ther server, you will be prompted about host authenticity, choose allow/yes.  
 
+After login, you will be shown the login credentials of the **rails** user and also the PostgreSQL credential like this :  
+// insert screenshot here  
+Copy this information to a text file as we will use it later.
+
 Since <strong>root</strong> has all the privilleges, it might be dangerous to execute commands as root has the absolute power to do anything and might damage the system if not careful. Lets add sudo privilege to the <strong>rails</strong> user and also add it to the rvm user group so that multiple ruby versions will be available to the user. 
 
 <code>gpasswd -a <strong>rails</strong> sudo</code><br>
