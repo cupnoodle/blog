@@ -121,5 +121,13 @@ We will configure Unicorn and Nginx config file before pushing a local rails app
 
 
 ## Configure Unicorn
+By default, the Unicorn server is pointing to the default rails app which we saw at the start of this tutorial. We will change the Unicorn configuration file to point to our **fox sample** directory.<br><br>
+Open the **/etc/unicorn.conf** and edit it:  
+<code>sudo nano /etc/unicorn.conf</code><br><br>
+Find the line that mentions APP_ROOT, and replace it to point to your application. Replacing **rails_project** with **fox_sample**. When you're done, the line should look like this:
+<div class="code-label">/etc/default/unicorn excerpt</div>  
+<pre>
+  APP_ROOT=/home/rails/fox_sample
+</pre>
 
 
