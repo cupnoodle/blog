@@ -332,6 +332,10 @@ kbd{
   {
     left: 0px;
   }
+
+  code, pre {
+    font-size: 0.85em;
+  }
 }
 
 @media screen and (max-width: 376px){ 

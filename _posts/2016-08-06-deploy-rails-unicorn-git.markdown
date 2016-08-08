@@ -48,7 +48,7 @@ After login, you will be shown the login credentials of the **rails** user and a
 ![rails credential](https://littlefoximage.s3.amazonaws.com/post24/rails_credential.png)
 Copy this information to a text file as we will use it later.
 
-Before anything else, lets update the apt-get repository <br>
+Before anything else, update the apt-get repository <br>
 <code>sudo apt-get update</code>
   
 ### Setup rails user privilege
@@ -121,13 +121,26 @@ We will configure Unicorn and Nginx config file before pushing a local rails app
 
 
 ## Configure Unicorn
-By default, the Unicorn server is pointing to the default rails app which we saw at the start of this tutorial. We will change the Unicorn configuration file to point to our **fox sample** directory.<br><br>
-Open the **/etc/unicorn.conf** and edit it:  
+By default, the Unicorn server is pointing to the default rails app which we saw at the start of this tutorial. We will change the Unicorn configuration file to point to our **fox_sample** directory.<br><br>
+Open **/etc/unicorn.conf** and edit it:  
 <code>sudo nano /etc/unicorn.conf</code><br><br>
-Find the line that mentions APP_ROOT, and replace it to point to your application. Replacing **rails_project** with **fox_sample**. When you're done, the line should look like this:
+Find the line that mentions **working_directory**, and replace it to point to your application. Replace **rails_project** with **fox_sample**. When you're done, the line should look like this :  
+<div class="code-label">/etc/unicorn.conf excerpt</div>  
+<pre>
+  working_directory "/home/rails/fox_sample"
+</pre><br>
+Next, open and edit **/etc/default/unicorn**  
+<code>sudo nano /etc/default/unicorn</code><br>
+
+Find the line that mentions APP_ROOT, and replace it to point to your application. Replace **rails_project** with **fox_sample**. When you're done, the line should look like this:
 <div class="code-label">/etc/default/unicorn excerpt</div>  
 <pre>
   APP_ROOT=/home/rails/fox_sample
-</pre>
+</pre><br>
+Save it and restart Unicorn by typing : <br>
+<code>service unicorn restart</code><br><br>
+Next, we will configure the Nginx config files.
+  
+## Configure Nginx
 
 
