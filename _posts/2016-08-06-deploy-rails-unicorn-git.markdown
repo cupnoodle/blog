@@ -156,5 +156,6 @@ Now restart Nginx to put the change in effect : <br>
 <code>sudo service nginx restart</code><br><br>
 
 ## Push local git repository to server and deploy
-
+This step will be performed on your local computer. Navigate to your favorite directory and git clone the fox_sample rails repo :  
+<code>git clone https://github.com/cupnoodle/fox_sample.git </code>
 
