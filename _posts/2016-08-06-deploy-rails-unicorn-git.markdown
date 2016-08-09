@@ -138,9 +138,23 @@ Find the line that mentions APP_ROOT, and replace it to point to your applicatio
   APP_ROOT=/home/rails/fox_sample
 </pre><br>
 Save it and restart Unicorn by typing : <br>
-<code>service unicorn restart</code><br><br>
+<code>sudo service unicorn restart</code><br><br>
 Next, we will configure the Nginx config files.
   
 ## Configure Nginx
+
+Nginx which is used as a reverse proxy to Unicorn, needs to know the path of your application's **public** directory. Open and edit the Nginx configuration file:  
+<code>sudo nano /etc/nginx/sites-enabled/rails</code><br><br>
+Find the line that mention **root**, and change it to point to the **fox_sample** app's public directory. The line should look like this after editing:  
+<div class="code-label">/etc/nginx/sites-enabled/rails excerpt</div>  
+<pre>
+  root /home/rails/fox_sample/public;
+</pre><br>
+Save and exit.   
+
+Now restart Nginx to put the change in effect : <br>
+<code>sudo service nginx restart</code><br><br>
+
+## Push local git repository to server and deploy
 
 
