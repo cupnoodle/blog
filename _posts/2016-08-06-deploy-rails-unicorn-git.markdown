@@ -137,6 +137,12 @@ Find the line that mentions APP_ROOT, and replace it to point to your applicatio
 <pre>
   APP_ROOT=/home/rails/fox_sample
 </pre><br>
+We will also add another environment variable for the database credential for the app at the bottom of the same file:  
+<div class="code-label">/etc/default/unicorn excerpt</div>  
+<pre>
+  # database password shown in setup step
+  export FOX_SAMPLE_DATABASE_PASSWORD=Uxf1NRZfjH
+</pre><br>
 Save it and restart Unicorn by typing : <br>
 <code>sudo service unicorn restart</code><br><br>
 Next, we will configure the Nginx config files.
@@ -157,5 +163,16 @@ Now restart Nginx to put the change in effect : <br>
 
 ## Push local git repository to server and deploy
 This step will be performed on your local computer. Navigate to your favorite directory and git clone the fox_sample rails repo :  
-<code>git clone https://github.com/cupnoodle/fox_sample.git </code>
+<code>git clone https://github.com/cupnoodle/fox_sample.git </code><br><br>
+Navigate to the cloned repository  
+<code>cd fox_sample</code>
+<br><br>
+Add a git remote named **live** that points to your server repository location:  
+<pre>
+  git remote add live ssh://rails@<span style="color:red;">YOUR_SERVER_IP_OR_DOMAIN_NAME</span>/home/rails/repo/fox_sample.git
+</pre>
+<br>
+And now you are set to deploy to the server , just push it to the server and you are good to go :  
+<code>git push live master</code>
+
 
