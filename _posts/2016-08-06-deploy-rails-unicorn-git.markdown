@@ -93,8 +93,11 @@ Before this step, you should have login as **rails** user.
 Install git using this command : <br>
 <code>sudo apt-get install git</code><br>
 
-Install the depedency required by nokogiri gem :  
+Install the depedency required by nokogiri gem :<br>
 <code>sudo apt-get install libxslt-dev libxml2-dev</code><br>
+
+Upgrade the ruby gem to the latest version :<br>
+<code>gem update --system</code>
 
 After installing Git, we will now create a bare git repository named <strong>fox_sample.git</strong> and a folder to store the source code <strong>fox_sample</strong>, let's put the repository on your user folder for this tutorial ( you can of course change to other location ).  
 <code>cd ~rails </code>  
@@ -123,6 +126,8 @@ And paste this and save :
 <br>
 Remember to give execute permission to the post-receive hook :  
 <code>chmod +x post-receive</code>
+<br><br>
+Previously we added Nginx service and Unicorn service into sudoers.d/rails to exempt from entering password, it is used here for deploying tasks so that the deployment task will not be paused to ask for password when we git push.
 <br><br>
 We will configure Unicorn and Nginx config file before pushing a local rails app to this server.
 
@@ -180,6 +185,12 @@ Add a git remote named **live** that points to your server repository location:
 </pre>
 <br>
 And now you are set to deploy to the server , just push it to the server and you are good to go :  
-<code>git push live master</code>
+<code>git push live master</code><br><br>
 
+Now head to http://you.server.ip.address , you should see similar output below : <br>
+![My feel when successfully deployed rails](https://littlefoximage.s3.amazonaws.com/post24/mfwdeployed.png)  
+
+Congratulations 🎉🍻! You have successfully deployed a Rails application using git push from your local machine to the remote VPS.  
+
+For subsequent changes, just <code>git commit</code> and then <code>git push live</code> and your server will run the deploy task automatically.
 
