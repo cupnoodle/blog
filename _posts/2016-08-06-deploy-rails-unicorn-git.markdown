@@ -83,15 +83,18 @@ If you have selected 512 MB RAM previously, it is advised to increase the swap s
 ### Logout and login as rails user
 Now logout and login as the **rails** user with the credential you saved earlier  
 <code>exit</code><br>
-<code>ssh rails@<span style="color:red;">server.ip.address.here</span></code>
+<code>ssh rails@<span style="color:red;">server.ip.address.here</span></code><br>
 You can change the password of this user if you want to : <br>
 <code>passwd</code>
 
 ## Install git and create a repository
 Before this step, you should have login as **rails** user.  
 
-Install git using this command : 
+Install git using this command : <br>
 <code>sudo apt-get install git</code><br>
+
+Install the depedency required by nokogiri gem :  
+<code>sudo apt-get install libxslt-dev libxml2-dev</code><br>
 
 After installing Git, we will now create a bare git repository named <strong>fox_sample.git</strong> and a folder to store the source code <strong>fox_sample</strong>, let's put the repository on your user folder for this tutorial ( you can of course change to other location ).  
 <code>cd ~rails </code>  
@@ -117,6 +120,10 @@ Create a file named 'post-receive' :
 <code>nano post-receive </code><br><br>
 And paste this and save : 
 <script src="https://gist.github.com/cupnoodle/0faef2c737ebb7eb988e2a56b4fe1bad.js"></script>
+<br>
+Remember to give execute permission to the post-receive hook :  
+<code>chmod +x post-receive</code>
+<br><br>
 We will configure Unicorn and Nginx config file before pushing a local rails app to this server.
 
 
