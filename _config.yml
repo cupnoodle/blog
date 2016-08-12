@@ -8,9 +8,10 @@ paginate: 10
 paginate_path: "page/:num/"
 permalink: none
 timezone: Asia/Kuala_Lumpur
+future: true
 
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://littlefox.es" # the base hostname & protocol for your site
+url: "http://fluffy.es" # the base hostname & protocol for your site
 
 emoji:
   src: "/img"
