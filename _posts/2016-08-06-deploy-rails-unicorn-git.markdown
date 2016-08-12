@@ -74,6 +74,12 @@ Press <kbd>Ctrl</kbd> + <kbd>X</kbd> to quit and enter 'Y' to save. This will gr
 Type in the following chmod permission just in case, <br>
 <code>chmod 0440 /etc/sudoers.d/rails</code>
 
+{% comment %}
+### Remove all installed gem
+Remove all preinstalled gem so that the bundle wont search for cached gem later on. <br>
+<code>gem uninstall -Iax </code>
+{% endcomment %}
+
 ### Increase swap size for gem installation (Optional)
 If you have selected 512 MB RAM previously, it is advised to increase the swap size as you might run out of memory for installation of some gem. You can skip this step if your server has 1GB RAM or more.  
 <code>sudo dd if=/dev/zero of=/swap bs=1M count=1024</code><br>
@@ -155,8 +161,10 @@ We will also add another environment variable for the database credential for th
   # database password shown in setup step
   export FOX_SAMPLE_DATABASE_PASSWORD=Uxf1NRZfjH
 </pre><br>
+{% comment %}
 Save it and restart Unicorn by typing : <br>
 <code>sudo service unicorn restart</code><br><br>
+{% endcomment %}
 Next, we will configure the Nginx config files.
   
 ## Configure Nginx
@@ -170,11 +178,13 @@ Find the line that mention **root**, and change it to point to the **fox_sample*
 </pre><br>
 Save and exit.   
 
+{% comment %}
 Now restart Nginx to put the change in effect : <br>
 <code>sudo service nginx restart</code><br><br>
+{% endcomment %}
 
 ## Push local git repository to server and deploy
-This step will be performed on your local computer. Navigate to your favorite directory and git clone the fox_sample rails repo :  
+This step will be **performed on your local computer**. Navigate to your favorite directory and git clone the fox_sample rails repo :  
 <code>git clone https://github.com/cupnoodle/fox_sample.git </code><br><br>
 Navigate to the cloned repository  
 <code>cd fox_sample</code>
