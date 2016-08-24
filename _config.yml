@@ -13,7 +13,7 @@ permalink: none
 gems: [jekyll-paginate, gemoji, html/pipeline]
 
 timezone: Asia/Kuala_Lumpur
-future: false
+future: true
 
 emoji:
   src: "/img"
