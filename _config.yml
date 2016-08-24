@@ -1,26 +1,24 @@
-# Site settings
 name: Little Foxes
-title: Little Foxes
-description: Writings about technology and appreciation of foxes
+description: Writings on tech and foxes
+meta_description: "Writings on tech and foxes"
+
 markdown: kramdown
 highlighter: pygments
-paginate: 10
-paginate_path: "page/:num/"
+logo: false
+paginate: 15
+baseurl: /
+domain_name: 'https://littlefox.es'
+google_analytics: 'UA-XXXXXXXX-X'
 permalink: none
-timezone: Asia/Kuala_Lumpur
-future: true
+gems: [jekyll-paginate, gemoji, html/pipeline]
 
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://fluffy.es" # the base hostname & protocol for your site
+timezone: Asia/Kuala_Lumpur
+future: false
 
 emoji:
   src: "/img"
 
-
-# Gems
-gems: [jekyll-paginate, gemoji, html/pipeline]
-
-# Build settings
-markdown: kramdown
-kramdown:
-  entity_output: as_input
+# Details for the RSS feed generator
+url:            'https://littlefox.es'
+author:         'soulchild'
+bio:            "I dream of foxes and a world where software doesn't suck"
