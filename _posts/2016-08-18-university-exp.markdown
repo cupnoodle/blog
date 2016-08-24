@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Why did you choose your particular degree major?"
-date:   2016-08-26 11:10:10
+date:   2016-08-26 10:20:10
 categories: post
 post_id: 25
 ---
