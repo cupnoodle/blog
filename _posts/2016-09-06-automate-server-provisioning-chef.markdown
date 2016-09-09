@@ -199,3 +199,7 @@ This will take around 15-20 minutes, you can grab a coffee or tea at the mean ti
 
 ## Step Four - Git push and deploy
 
+After chef has finished cooking, open your favorite web browser and head to your server IP address or domain name. You will see a placeholder rails app like this :  
+
+![yay rails](https://littlefoximage.s3.amazonaws.com/post26/placeholder_rails.png)
+
