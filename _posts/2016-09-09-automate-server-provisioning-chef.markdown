@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Rails starter pack cookbook (Passenger, Nginx, PostgreSQL, RVM) for Chef and how to use it"
-date:   2016-09-06 10:20:10
+date:   2016-09-09 10:20:10
 categories: [devops]
 post_id: 26
 ---
