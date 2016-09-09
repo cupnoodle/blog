@@ -183,9 +183,7 @@ The full list of the default attribute can be [viewed here](https://github.com/c
 
 ## Step Three - Cook the server using Chef 
 
-No, not using oil and fire. The 'cook' means executing the command/recipe. After overriding the attribute,
-
-change your current directory to the **rails_chef** directory again.  
+No, not using oil and fire. The 'cook' means executing the command/recipe. After overriding the attribute, change your current directory to the **rails_chef** directory again.  
 
 `cd rails_chef`  
 
@@ -202,4 +200,38 @@ This will take around 15-20 minutes, you can grab a coffee or tea at the mean ti
 After chef has finished cooking, open your favorite web browser and head to your server IP address or domain name. You will see a placeholder rails app like this :  
 
 ![yay rails](https://littlefoximage.s3.amazonaws.com/post26/placeholder_rails.png)
+
+Yay! You have successfully setup a Rails stack server! All that left is to push your rails app from your local machine to the remote server.  
+Navigate to your rails app directory in your local machine  
+`cd my_tasty_rails_app`  
+
+
+Add a git remote that points to the server in this format :  
+<script src="https://gist.github.com/cupnoodle/426a49140333e35d1086e764765205a5.js"></script>
+
+Replace the **username** with the ssh user created just now, **your_server_ip** with… your server IP address, **port** with your SSH port, **app_name** with the rails app name you entered in the json earlier.    
+
+
+
+Following the configuration I used for the chef just now, my git remote command looks like this :  
+
+>
+> git remote add live ssh://cupnoodle@tasty.vul.io:2020/home/cupnoodle/repo/tasty_app.git  
+>
+
+After adding the remote, git commit and push it to remote :  
+`git push live master`
+
+
+
+You will see the server running deploy command such as  **bundle install**, **rake db:migrate** and **rake assets:precompile**  etc.
+
+
+And now open your server IP or domain name using web browser again, your Rails app is live now 🍻! Next time just git push to your server for any new changes. Feels like Heroku now didn't it? Just way cheaper 😝
+
+
+
+p/s: Remember to copy the **application.yml** to _/home/[username]/[app_name]_ before git push if you are using Figaro gem.  
+
+<script src="https://gist.github.com/cupnoodle/470610232117e33a98450b4859c5ec13.js"></script>
 
