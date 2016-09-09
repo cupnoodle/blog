@@ -327,10 +327,11 @@ mark {
 code, tt {
     padding: 1px 3px;
     font-family: Inconsolata, monospace, sans-serif;
-    font-size: 0.85em;
+    font-size: 1em;
     white-space: pre-wrap;
     border: #E3EDF3 1px solid;
-    background: #F7FAFB;
+    background: #F7FAFB; 
+    /* background: #BDDCFB; */
     border-radius: 2px;
 }
 
@@ -342,7 +343,7 @@ pre {
     width: 100%;
     padding: 10px;
     font-family: Inconsolata, monospace, sans-serif;
-    font-size: 0.9em;
+    font-size: 1em;
     white-space: pre;
     overflow: auto;
     background: #F7FAFB;
@@ -532,7 +533,7 @@ figcaption {
 /* Put a semi-opaque radial gradient behind the icon to make it more visible
    on photos which happen to have a light background. */
 .home-template {
-    background-color: #fafafa;
+    background-color: #fcfcfc;
 }
 
 .home-template .main-header:after {
@@ -794,7 +795,7 @@ body:not(.post-template) .post-title {
     text-align: center;
     font-size: 15px;
     border-radius: 3px;
-    background-color: #fafafa;
+    background-color: #fcfcfc;
 }
 
 .read-more:hover{
